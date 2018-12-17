@@ -1,28 +1,12 @@
-<?php require __DIR__.'/views/header.php';
+<?php require __DIR__.'/views/header.php'; ?>
 
-?>
-  <article>
-      <h1>Login</h1>
+<article>
+    <h1><?php echo $config['title']; ?></h1>
+    <p>This is the home page.</p>
 
-      <form action="app/users/login.php" method="post">
-          <div class="form-group">
-              <label for="email">Email</label>
-              <input class="form-control" type="email" name="email" id="email" placeholder="Email" required>
-              <small class="form-text text-muted">Please provide the your email address.</small>
-          </div><!-- /form-group -->
+    <?php if (isset($_SESSION['user'])): ?>
+        <p>Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
+    <?php endif; ?>
+</article>
 
-          <div class="form-group">
-              <label for="password">Password</label>
-              <input class="form-control" type="password" name="password" id="password" required>
-              <small class="form-text text-muted">Please provide the your password (passphrase).</small>
-          </div><!-- /form-group -->
-
-          <button type="submit" class="btn btn-primary">Login</button>
-
-          <a href="register.php">Create a acount</a>
-
-      </form>
-  </article>
-
-</body>
-</html>
+<?php require __DIR__.'/views/footer.php'; ?>
