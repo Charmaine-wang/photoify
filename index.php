@@ -1,22 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+<?php require __DIR__.'/views/header.php';
 
+?>
+  <article>
+      <h1>Login</h1>
 
-  <form class="account" action="index.html" method="post">
+      <form action="app/users/login.php" method="post">
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input class="form-control" type="email" name="email" id="email" placeholder="Email" required>
+              <small class="form-text text-muted">Please provide the your email address.</small>
+          </div><!-- /form-group -->
 
-    <input type="text" name="fname" placeholder="Firstname">
-    <input type="text" name="lname" placeholder="Lastname">
-    <input type="text" name="email" placeholder="Email">
-    <input type="text" name="username" placeholder="Username">
-    <input type="text" name="password" placeholder="Password">
-  </form>
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" type="password" name="password" id="password" required>
+              <small class="form-text text-muted">Please provide the your password (passphrase).</small>
+          </div><!-- /form-group -->
+
+          <button type="submit" class="btn btn-primary">Login</button>
+
+          <a href="register.php">Create a acount</a>
+
+      </form>
+  </article>
 
 </body>
 </html>
