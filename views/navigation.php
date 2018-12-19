@@ -14,6 +14,12 @@
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Signup</a>
         </li><!-- /nav-item -->
 
+<?php if (isset($_SESSION['user'])): ?>
+        <li class="nav-item">
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/profile.php' ? 'active' : ''; ?>" href="/profile.php">Profile</a>
+        </li><!-- /nav-item -->
+<?php endif; ?>
+
         <li class="nav-item">
             <?php if (isset($_SESSION['user'])): ?>
                 <a class="nav-link" href="/app/users/logout.php">Logout</a>

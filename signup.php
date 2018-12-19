@@ -1,9 +1,5 @@
 <?php require __DIR__.'/views/header.php';
-
-
-if (isset($_SESSION['message'])) {
-   
-}?>
+?>
 
 <article>
 
