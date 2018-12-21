@@ -11,8 +11,10 @@
         </li><!-- /nav-item -->
 
         <li class="nav-item">
+          <?php if (!isset($_SESSION['user'])): ?>
             <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Signup</a>
-        </li><!-- /nav-item -->
+          <?php endif ?>
+                </li><!-- /nav-item -->
 
 <?php if (isset($_SESSION['user'])): ?>
         <li class="nav-item">

@@ -8,7 +8,7 @@ if (isset($_POST['username'],$_POST['email'],$_POST['name'], $_POST['password'],
    // Checks if passwords match
    if ($_POST['password'] === $_POST['r_password']) {
 $_SESSION['message'] = 'Please insert the same password';
-
+redirect('/signup.php');
 
 
        $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
@@ -53,12 +53,16 @@ $_SESSION['message'] = 'Please insert the same password';
        $statement->execute();
        $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-       $_SESSION['user'] = [
-    'username' => $username,
-    'name' => $fullname,
-    'email' => $email
 
-];
+               $_SESSION['user'] = [
+                   'id' => $id,
+                   'email' => $email,
+                   'name' => $name,
+                   'profile_bio' => $profile_bio,
+                   'username' => $username,
+                   'profile_pic' => $profile_pic
+               ];
+
 $_SESSION['message'] = 'Log in on your new accont';
 
 redirect('/login.php');

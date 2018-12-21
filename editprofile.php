@@ -25,14 +25,14 @@
                       <label for="profile_bio">Edit Profilbio</label>
                       <textarea class="form-control" type="profile_bio" name="profile_bio" id="profile_bio" rows="8" cols="80"></textarea>
                     </div>
-                  </form>
+
 
                   <div class="form-group">
-                      <label for="password">Confirm with assword</label>
+                      <label for="password">Confirm with Password</label>
                       <input class="form-control" type="password" name="password" placeholder="Old Password">
                   </div><!-- /form-group -->
                 <button type="submit" class="btn btn-primary">Update</button>
-
+</form>
     </article><br><br>
 
 
