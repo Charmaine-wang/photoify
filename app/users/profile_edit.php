@@ -29,14 +29,18 @@ if(!isset($_SESSION['user'])){
         redirect('/profile.php');
     }
 
-    //if none of those two trim and filter theese
+//if chamge password check if they match
+if(isset($_POST['new_password'], $_POST['new_rep_password'])){
+if ($_POST['new_password'] === $_POST['new_rep_password']){}
+  $password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+
 
         $id = (int)$_SESSION['user']['id'];
         //Trim post
         $profile_bio = trim(filter_var($_POST['profile_bio'],FILTER_SANITIZE_STRING));
         $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
 
-        $statement = $pdo->prepare('UPDATE users SET profile_bio = :profile_bio, name = :name, email = :email, username = :username
+        $statement = $pdo->prepare('UPDATE users SET profile_bio = :profile_bio, name = :name, email = :email, username = :username, password = :password
         WHERE id = :id');
 
         //if not die
@@ -51,6 +55,7 @@ if(!isset($_SESSION['user'])){
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         $statement->bindParam(':username', $username, PDO::PARAM_STR);
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->bindParam(':password', $password, PDO::PARAM_STR);
 
         $statement->execute();
 
@@ -65,9 +70,11 @@ if(!isset($_SESSION['user'])){
             'name' => $user['name'],
             'profile_bio' => $user['profile_bio'],
             'username' => $user['username'],
-            'profile_pic' => $user['profile_pic']
+            'profile_pic' => $user['profile_pic'],
+          'password' => $user['password']
 
         ];
       }
+    }
         redirect('/profile.php');
     }
