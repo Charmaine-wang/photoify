@@ -1,8 +1,13 @@
 
-<form action="app/posts/createposts.php" method="post" enctype="multipart/form-data">
+<form action="app/posts/store.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="image">Image</label>
+        <label for="post_image">Image</label>
         <input class="form-control" type="file" name="post_image">
+
+        <?php if (isset($_SESSION['user'])): ?>
+          <img class="profile_pic" src=<?php echo"/app/posts/upload-image/".$_SESSION['posts']['content'];?>>
+
+        <?php endif; ?>
     </div><!-- /form-group -->
 
     <div class="form-group">
@@ -10,6 +15,6 @@
         <textarea class="form-control" type="text" name="description"></textarea>
     </div><!-- /form-group -->
 
-    <button type="submit" class="btn btn-primary">Upload post</button>
+    <button type="submit" class="btn_posts">Upload post</button>
 </form>
 </article>

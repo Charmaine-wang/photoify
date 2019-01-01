@@ -27,17 +27,6 @@
                       </textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input class="form-control" type="password" name="new_password" id="password" required>
-                        <small class="form-text text-muted">Please provide the your password (passphrase).</small>
-                    </div><!-- /form-group -->
-
-                    <div class="form-group">
-                        <label for="r_password">Repeat Password</label>
-                        <input class="form-control" type="password" name="new_rep_password" id="r_password" required>
-                        <small class="form-text text-muted">Please provide the your password (passphrase).</small>
-                    </div><!-- /form-group -->
 
                     <div class="form-group">
                         <label for="password">Confirm with Password</label>

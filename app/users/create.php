@@ -55,7 +55,7 @@ if (isset($_POST['username'],$_POST['email'],$_POST['name'], $_POST['password'],
                    'profile_bio' => $profile_bio,
                    'username' => $username,
                    'profile_pic' => $profile_pic,
-              
+
                ];
 
 $_SESSION['message'] = 'Log in on your new accont';

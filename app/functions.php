@@ -16,3 +16,17 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
+
+function getPost(int $userID, $pdo){
+
+
+  $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id');
+
+  $statement->bindParam(':user_id', $userId, PDO::PARAM_STR);
+
+  $statement->execute();
+
+  $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+}
