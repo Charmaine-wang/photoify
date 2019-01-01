@@ -1,1 +1,72 @@
-/* In this file you can add your custom styles. */
+body {
+  height: 100vh;
+  background: linear-gradient(70deg, blue, pink);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* @media screen and (min-width: 600px) { */
+.navbar {}
+
+.navbar-nav {
+  margin: 10% 0 0 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 24px;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+/* PROFILE*/
+.profile-info {
+  display: flex;
+  color: aliceblue;
+  flex-direction: column;
+}
+
+.profile-info h1 {
+  text-align: center;
+}
+
+.profile-info p {
+  font-size: 20px;
+  margin: 0;
+}
+
+.profile_pic {
+  justify-content: center;
+  align-self: center;
+  width: 50vw;
+  height: 30vh;
+  border-radius: 100px;
+}
+
+/* IMAGE CLASS POST*/
+.post-image {
+  width: 100vw;
+  height: 70vh;
+}
+
+.post-description {
+  font-size: 28px;
+}
+
+.post-img-des {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.post-img-des p {
+  text-align: center;
+}
+
+/* } */
+/* Media queries for smaller window */
+@media screen and (min-width: 600px) and (max-width: 1000px) {}

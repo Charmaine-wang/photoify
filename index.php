@@ -1,13 +1,23 @@
 <?php require __DIR__.'/views/header.php'; ?>
 
 <article>
+    <h1>Login</h1>
 
-    <h1><?php echo $config['title']; ?></h1>
-    <p>This is the home page.</p>
+    <form action="app/users/login.php" method="post">
+        <div class="form-group">
+            <label for="email">Email</label><br>
+            <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
+            <small class="form-text text-muted"><br>Please provide the your email address.</small>
+        </div><!-- /form-group -->
+<br>
+        <div class="form-group">
+            <label for="password">Password</label><br>
+            <input class="form-control" type="password" name="password" id="password" required>
+            <small class="form-text text-muted"><br>Please provide the your password (passphrase).</small>
+        </div><!-- /form-group -->
 
-    <?php if (isset($_SESSION['user'])): ?>
-
-    <?php endif; ?>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
 </article>
 
 <?php require __DIR__.'/views/footer.php'; ?>
