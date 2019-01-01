@@ -38,7 +38,7 @@ $postName = $id.'.'.$created.'.'.$extension;
 ;
 //bilden ska läggas i upload image mappen(användarens id, datumet den laddades upp och vilken typ)
   move_uploaded_file($postImage['tmp_name'], __DIR__.'/upload-image/'. $postName);
-die(var_dump($postName));
+
 
 };
 $_SESSION['posts'] = [
