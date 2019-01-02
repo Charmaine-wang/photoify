@@ -1,18 +1,18 @@
 <?php require __DIR__.'/views/header.php'; ?>
 
-<article>
+<article class="login-form">
     <h1>Login</h1>
 
-    <form action="app/users/login.php" method="post">
-        <div class="form-group">
+    <form class="form-log" action="app/users/login.php" method="post">
+        <div class="form-group login-label">
             <label for="email">Email</label><br>
-            <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
+            <input class="form-control login-box" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
             <small class="form-text text-muted"><br>Please provide the your email address.</small>
         </div><!-- /form-group -->
 <br>
-        <div class="form-group">
+        <div class="form-group login-label ">
             <label for="password">Password</label><br>
-            <input class="form-control" type="password" name="password" id="password" required>
+            <input class="form-control login-box" type="password" name="password" id="password" required>
             <small class="form-text text-muted"><br>Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 

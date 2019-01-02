@@ -2,6 +2,7 @@
     <!-- <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a> -->
 
     <ul class="navbar-nav">
+      
       <li class="nav-item">
       <?php if (!isset($_SESSION['user'])): ?>
         <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Signup</a>

@@ -3,7 +3,7 @@
 <div class="profile-info" >
     <h1 >Profile</h1>
 
-<form action="app/users/picture.php" method="post" enctype="multipart/form-data">
+<form class ="pro-box" action="app/users/picture.php" method="post" enctype="multipart/form-data">
 
                 <?php if (isset($_SESSION['user'])): ?>
                   <img class="profile_pic" src=<?php echo"/app/users/upload/".$_SESSION['user']['profile_pic'];?>>
