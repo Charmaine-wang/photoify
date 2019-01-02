@@ -106,14 +106,14 @@ body {
 }
 
 .post-edit {
-  transform: translateX(-110px);
+  transform: translateX(-250px);
 }
 
 .slide-edit {
   transform: translateX(50px);
   display: block;
-  width: 120px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   background-color: chartreuse;
 }
 

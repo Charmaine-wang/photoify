@@ -1,6 +1,6 @@
 <?php require __DIR__.'/views/header.php'; ?>
-
-<form action="app/posts/store.php" method="post" enctype="multipart/form-data">
+<article class="">
+  <form action="app/posts/store.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="post_image">Image</label>
         <input class="form-control" type="file" name="post_image">
@@ -24,21 +24,32 @@
           <img class="post-image" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
           <p class="post-description"> <?php echo $post['description']; ?></p>
 
-<!-- give the icon and the div that will slide out when you click the same data-id -->
+
+
+
+          <!-- give the icon and the div that will slide out when you click the same data-id -->
           <i data-id="<?= $post['id']?>" class="fas fa-cogs change-post"></i>
+          <!-- form that will show when you click -->
           <div data-id="<?= $post['id']?>" class="post-edit">
-            <!-- form that will show when you click -->
+
           <form action="app/posts/update.php"  method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="post_description">Edit description</label>
-              <input class="form-control" type="file" name="post_image">
+              <textarea class="form-control" type="text" name="post_description"> <?php echo $post['description']; ?></textarea>
             </div>
+            <button type="submit" class="post" name="post_id" value="<?= $post['id'] ?>">edit</button>
           </form>
 
           <form action="app/posts/delete.php" method="post" enctype="multipart/form-data">
-              <label for="post_image">Delete Post</label>
+            <div class="form-group">
+              <label for="delete_post">Delete Post</label>
+            </div>
+            <button type="submit" class="delete" name="delete_post" value="<?= $post['id'] ?>">DELETE</button>
           </form>
+
           </div>
+
+      </article>
 <?php endforeach;?>
 </div>
 </article>
