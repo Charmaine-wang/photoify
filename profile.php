@@ -1,5 +1,10 @@
 <?php require __DIR__.'/views/header.php';
 ?>
+  <?php if (!isset($_SESSION['user'])): ?>
+    <?php redirect('/login.php');
+
+  endif;?>
+
 <div class="profile-info" >
     <h1 >Profile</h1>
 
@@ -27,5 +32,6 @@
   <a href="editprofile.php">EDIT</a>
 <!-- </form> -->
 <!--<a href="/app/users/delete.php">Delete my user</a> -->
+
 </div>
 <?php require __DIR__.'/views/footer.php'; ?>

@@ -26,11 +26,20 @@
                       <textarea class="form-control" type="profile_bio" name="profile_bio"rows="8" cols="80"><?= $_SESSION['user']['profile_bio'] ?>
                       </textarea>
                     </div>
+                    <div class="form-group edit-group">
+                        <label for="new_password">NEW Password</label>
+                        <input class="form-control" type="password" name="new_password" placeholder="password">
+                    </div><!-- /form-group -->
+
+                    <div class="form-group edit-group">
+                        <label for="repeat_password">REPEAT NEW Password</label>
+                        <input class="form-control" type="password" name="repeat_password" placeholder="password">
+                    </div><!-- /form-group -->
 
 
                     <div class="form-group edit-group">
                         <label for="password">Confirm with Password</label>
-                        <input class="form-control" type="password" name="confirm_password" placeholder="password">
+                        <input class="form-control" type="password" name="confirm_password" placeholder="password" required>
                     </div><!-- /form-group -->
 
 

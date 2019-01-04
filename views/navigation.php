@@ -2,31 +2,35 @@
     <!-- <a class="navbar-brand" href="#"><?php echo $config['title']; ?></a> -->
 
     <ul class="navbar-nav">
-      
+
+      <li class="nav-item">
+        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/feed.php' ? 'active' : ''; ?>" href="/feed.php">HOME</a>
+    </li><!-- /nav-item -->
+
       <li class="nav-item">
       <?php if (!isset($_SESSION['user'])): ?>
-        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">Signup</a>
+        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>" href="/signup.php">SIGNUP</a>
       <?php endif ?>
     </li><!-- /nav-item -->
 
 <?php if (isset($_SESSION['user'])): ?>
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/profile.php' ? 'active' : ''; ?>" href="/profile.php">Profile</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/profile.php' ? 'active' : ''; ?>" href="/profile.php">PROFILE</a>
         </li><!-- /nav-item -->
 <?php endif; ?>
 
 <li class="nav-item">
     <?php if (isset($_SESSION['user'])): ?>
-    <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/posts.php' ? 'active' : ''; ?>" href="/posts.php">Posts</a>
+    <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/posts.php' ? 'active' : ''; ?>" href="/posts.php">POSTS</a>
     <?php endif ?>
 </li><!-- /nav-item -->
 
 
       <li class="nav-item">
           <?php if (isset($_SESSION['user'])): ?>
-              <a class="nav-link" href="/app/users/logout.php">Logout</a>
+              <a class="nav-link" href="/app/users/logout.php">LOGOUT</a>
           <?php else: ?>
-              <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="index.php">Login</a>
+              <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="login.php">LOGIN</a>
           <?php endif; ?>
       </li><!-- /nav-item -->
 

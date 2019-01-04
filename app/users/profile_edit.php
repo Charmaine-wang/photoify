@@ -36,6 +36,7 @@ if(!isset($_SESSION['user'])){
         $profile_bio = trim(filter_var($_POST['profile_bio'],FILTER_SANITIZE_STRING));
         $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
 
+
         $statement = $pdo->prepare('UPDATE users SET profile_bio = :profile_bio, name = :name, email = :email, username = :username
         WHERE id = :id');
 
@@ -45,6 +46,31 @@ if(!isset($_SESSION['user'])){
             die(var_dump($pdo->errorInfo()));
         }
 
+
+
+// if(isset($_POST['new_password'], $_POST['repeat_password'])){
+//    if ($_POST['new_password'] == $_POST['repeat_password']){
+//
+//      $newPassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+//
+//        $statement = $pdo->prepare('UPDATE users SET password = :password WHERE  id = :id');
+//
+//
+//               if (!$statement)
+//               {
+//                   die(var_dump($pdo->errorInfo()));
+//               }
+//
+//              $statement->bindParam(':password', $newPassword, PDO::PARAM_STR);
+//              $statement->bindParam(':id', $id, PDO::PARAM_INT);
+//              $statement->execute();
+//              $user = $statement->fetch(PDO::FETCH_ASSOC);
+//            }
+//
+//
+//    }
+
+
         // binds variables to parameteres for insert statement
         $statement->bindParam(':profile_bio', $profile_bio, PDO::PARAM_STR);
         $statement->bindParam(':name', $name, PDO::PARAM_STR);
@@ -53,6 +79,31 @@ if(!isset($_SESSION['user'])){
         $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
         $statement->execute();
+
+
+        if(isset($_POST['new_password'], $_POST['repeat_password']) && $_POST['repeat_password'] !== ""){
+
+
+        if(!isset($_SESSION['user'])){
+            redirect('/profile.php');
+        } else {
+
+        $newPassword = password_hash(filter_var(trim($_POST['new_password']), FILTER_SANITIZE_STRING), PASSWORD_BCRYPT);
+        }
+
+        $statement = $pdo->prepare("UPDATE users SET password = :password WHERE id = :id");
+
+        if (!$statement)
+        {
+            die(var_dump($pdo->errorInfo()));
+        }
+
+        $statement->bindParam(':password', $newPassword, PDO::PARAM_STR);
+        $statement->bindParam(':id', $id, PDO::PARAM_STR);
+        $statement->execute();
+        $_SESSION['messages'][] = "Your password has been updated!";
+    }
+
 
         $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
         $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_STR);
@@ -65,9 +116,8 @@ if(!isset($_SESSION['user'])){
             'name' => $user['name'],
             'profile_bio' => $user['profile_bio'],
             'username' => $user['username'],
-            'profile_pic' => $user['profile_pic']
-
+            'profile_pic' => $user['profile_pic'],
         ];
       }
         redirect('/profile.php');
-    }
+}
