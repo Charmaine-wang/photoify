@@ -50,4 +50,5 @@ $_SESSION['posts'] = [
 ];
 };
 
+
 redirect('/posts.php');

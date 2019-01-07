@@ -1,7 +1,7 @@
 <?php require __DIR__.'/views/header.php'; ?>
 
-<article class="">
-  <form action="app/posts/store.php" method="post" enctype="multipart/form-data">
+<article class="posts-article">
+  <form action="app/posts/store.php" method="post" enctype="multipart/form-data" class="posts-form">
     <div class="form-group">
         <label for="post_image">Image</label>
         <input class="form-control" type="file" name="post_image">
@@ -25,22 +25,27 @@
         <!-- post all img and description -->
           <img class="post-image" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
           <p class="post-description"> <?php echo $post['description']; ?></p>
+          <form action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
+            <input type="text" style="display:none" hidden name="post_id" value="<?= $post['id']?>">
+            <button type="submit" class="delete" name="likes_add">
+              <i class="far fa-heart likes"></i>
+            </button>
+          </form>
 <!--likes send to likes php and cound likes -->
 
 
-<?php $likes = getLikes($_SESSION['user']['id'], $pdo); ?>
+<!-- <?php //$likes = getLikes($_SESSION['user']['id'], $pdo); ?> -->
 
-<form action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
-<?php foreach($likes as $like): ?>
+<?php// foreach($likes as $like): ?>
   <div class="form-group">
     <label for="likes_add"></label>
   </div>
-    <p>  <?php echo $like['like']?></p></button>
-<?php endforeach;?>
-    <i class="far fa-heart likes"></i><button type="submit" class="delete" name="likes_add" value="<?= $like['id'] ?>">
+    <p>  <?php// echo $like['like']?></p>
+<?php //endforeach;?>
 
 
-</form>
+
+
 
 
 
@@ -49,12 +54,10 @@
 
           <!-- give the icon and the div that will slide out when you click the same data-id -->
           <i data-id="<?= $post['id']?>" class="fas fa-cogs change-post"></i>
+
+
           <!-- form that will show when you click -->
           <div data-id="<?= $post['id']?>" class="post-edit">
-
-
-
-
           <form action="app/posts/update.php"  method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="post_description">Edit description</label>
@@ -63,16 +66,16 @@
             <button type="submit" class="post" name="post_id" value="<?= $post['id'] ?>">edit</button>
           </form>
 
+
+
           <form action="app/posts/delete.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="delete_post">Delete Post</label>
             </div>
             <button type="submit" class="delete" name="delete_post" value="<?= $post['id'] ?>">DELETE</button>
+          </div>
 
           </form>
-    </div>
-
-
       </article>
 <?php endforeach;?>
 

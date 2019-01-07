@@ -1,13 +1,27 @@
 body {
   height: 100vh;
-  background: linear-gradient(70deg, blue, pink);
+  background: slategray;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0;
+}
+
+* {
+  font-size: 24px;
+}
+
+label {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+small {
+  color: white;
+  font-size: 16px;
 }
 
 /* @media screen and (min-width: 600px) { */
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -45,6 +59,25 @@ body {
   display: flex;
   flex-direction: row;
   height: 30vh;
+} */
+/*NAVBAR ROW*/
+.navbar {
+  width: 100vw;
+  height: 20vh;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-item {
+  list-style: none;
 }
 
 /*LOGIN FORM*/
@@ -53,6 +86,7 @@ body {
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  margin: 5%;
   width: 100vw;
   height: 100vh;
   color: white;
@@ -72,7 +106,23 @@ body {
   font-size: 28px;
 }
 
+/*FORM CREATE*/
+.form-create {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 5%;
+}
+
 /* PROFILE*/
+.posts-article {
+  margin: 10%;
+}
+
+.posts-form {
+  overflow: hidden;
+}
+
 .pro-box {
   display: flex;
   flex-direction: column;
@@ -122,7 +172,9 @@ body {
   text-align: center;
 }
 
-.fas, .likes, .dislikes {
+.fas,
+.likes,
+.dislikes {
   font-size: 28px;
 }
 
@@ -133,9 +185,14 @@ body {
 .slide-edit {
   transform: translateX(50px);
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   background-color: chartreuse;
+  font-size: 28px;
+}
+
+.slide-edit textarea {
+  font-size: 24px;
 }
 
 /* } */

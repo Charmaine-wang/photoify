@@ -6,34 +6,34 @@
 
     <h1>Register</h1>
 
-<form action="app/users/create.php" method="post">
+<form action="app/users/create.php" method="post" class="form-create">
         <div class="form-group">
             <label for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="email" required>
+            <input class="form-control" type="email" name="email" id="email" required><br>
             <small class="form-text text-muted">Please provide the your email address.</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
             <label for="username">Username</label>
-            <input class="form-control" type="username" name="username" id="username" required>
+            <input class="form-control" type="username" name="username" id="username" required><br>
             <small class="form-text text-muted">Please provide the your username (passphrase).</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
             <label for="name">Name</label>
-            <input class="form-control" type="name" name="name" id="name" required>
+            <input class="form-control" type="name" name="name" id="name" required><br>
             <small class="form-text text-muted">Please provide the your name (passphrase).</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" id="password" required>
+            <input class="form-control" type="password" name="password" id="password" required><br>
             <small class="form-text text-muted">Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 
         <div class="form-group">
             <label for="r_password">Repeat Password</label>
-            <input class="form-control" type="password" name="r_password" id="r_password" required>
+            <input class="form-control" type="password" name="r_password" id="r_password" required><br>
             <small class="form-text text-muted">Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 

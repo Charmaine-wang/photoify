@@ -4,7 +4,7 @@
     <ul class="navbar-nav">
 
       <li class="nav-item">
-        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/feed.php' ? 'active' : ''; ?>" href="/feed.php">HOME</a>
+        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="/index.php">HOME</a>
     </li><!-- /nav-item -->
 
       <li class="nav-item">
