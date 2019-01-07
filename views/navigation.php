@@ -26,6 +26,7 @@
 </li><!-- /nav-item -->
 
 
+
       <li class="nav-item">
           <?php if (isset($_SESSION['user'])): ?>
               <a class="nav-link" href="/app/users/logout.php">LOGOUT</a>

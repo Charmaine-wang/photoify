@@ -17,7 +17,16 @@ if (!function_exists('redirect')) {
     }
 }
 
+
 function getPost(int $userID, $pdo){
+  $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id');
+  $statement->bindParam(':user_id', $userID, PDO::PARAM_INT);
+  $statement->execute();
+  $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+  return $posts;
+}
+
+function getLikes(int $userID, $pdo){
 
   $statement = $pdo->prepare('SELECT *, sum(likes) FROM posts WHERE user_id = :user_id');
 
@@ -29,42 +38,14 @@ function getPost(int $userID, $pdo){
 
   return $posts;
 }
-//
-// function getLikes(int $likesID, $pdo){
-//   $statement = $pdo->prepare('SELECT * FROM likes WHERE post_id = :post_id');
-//
-//   $statement->bindParam(':post_id', $likesID, PDO::PARAM_INT);
-//
-//   $statement->execute();
-//
-//   $likes = $statement->fetchAll(PDO::FETCH_ASSOC);
-//
-//
-//   return $likes;
-// }
 
+function getAllPosts($pdo){
 
-//joina de två funktionerna för att få ut likes och post i samma funktion
+  $statement = $pdo->prepare('SELECT * FROM posts');
 
-// function getPost(int $userID, $pdo){
-//   $postsAndLikes = [];
-//   $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id');
-//
-//   $statement->bindParam(':user_id', $userID, PDO::PARAM_INT);
-//
-//   $statement->execute();
-//
-//   $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-//   $postsAndLikes = $posts;
-//
-//   $statement = $pdo->prepare('SELECT * FROM likes WHERE post_id = :post_id');
-//   $statement->bindParam(':post_id', $likesID, PDO::PARAM_INT);
-//   $statement->execute();
-//   $likes = $statement->fetchAll(PDO::FETCH_ASSOC);
-//
-//   $postsAndlikes = $likes;
-//
-//   return $postsAndLikes;
-//
-//
-// }
+  $statement->execute();
+
+  $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $allPosts;
+}

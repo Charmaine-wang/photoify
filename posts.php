@@ -29,29 +29,19 @@
             <input type="text" style="display:none" hidden name="post_id" value="<?= $post['id']?>">
             <button type="submit" class="delete" name="likes_add">
               <i class="far fa-heart likes"></i>
+              <?php echo $post['likes']?>
+              <?php //$likes = getPostLikes($_SESSION['user']['id'], $pdo);?>
+            <?php  //foreach($likes as $like): ?>
+
+
             </button>
           </form>
 <!--likes send to likes php and cound likes -->
 
-
-<!-- <?php //$likes = getLikes($_SESSION['user']['id'], $pdo); ?> -->
-
-<?php// foreach($likes as $like): ?>
   <div class="form-group">
     <label for="likes_add"></label>
   </div>
-    <p>  <?php// echo $like['like']?></p>
-<?php //endforeach;?>
-
-
-
-
-
-
-
 </div>
-
-
           <!-- give the icon and the div that will slide out when you click the same data-id -->
           <i data-id="<?= $post['id']?>" class="fas fa-cogs change-post"></i>
 

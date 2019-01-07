@@ -1,8 +1,7 @@
 body {
   height: 100vh;
   background: slategray;
-  background-position: center;
-  background-repeat: no-repeat;
+  margin: 0;
 }
 
 * {
@@ -68,15 +67,18 @@ small {
 
 .navbar-nav {
   display: flex;
+  margin: 0;
   flex-direction: row;
 }
 
 .navbar-nav a {
   text-decoration: none;
+  font-size: 20px;
   color: white;
 }
 
 .nav-item {
+  margin-right: 2%;
   list-style: none;
 }
 
@@ -193,6 +195,16 @@ small {
 
 .slide-edit textarea {
   font-size: 24px;
+}
+
+/*ALL POSTS IN DATABASE*/
+.all-posts {
+  font-size: 24px;
+}
+
+.all-posts img {
+  width: 100vw;
+  height: 70vh;
 }
 
 /* } */

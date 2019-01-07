@@ -50,7 +50,7 @@ if(isset($_POST['likes_add'])){
   }
 
 
-
+redirect('/posts.php');
 
 
 

@@ -7,10 +7,19 @@ require __DIR__.'/../autoload.php';
 // In this file we delete new posts in the database.
 
 if(isset($_POST['delete_post'])){
+  $delete = $_POST['delete_post'];
 
-$delete = $_POST['delete_post'];
+$statement = $pdo->query("SELECT content FROM posts WHERE id = '$delete' ");
+
+  $statement->execute();
+  $post = $statement->fetch(PDO::FETCH_ASSOC);
+
+unlink(__DIR__.'/upload-image/'. $post['content']);
+
+
 
 $statement = $pdo->prepare('DELETE FROM posts WHERE id = :id');
+// unlink(__DIR__.'/upload-image/'. $delete);
 
 //if not die
 if (!$statement)
