@@ -25,15 +25,14 @@
         <!-- post all img and description -->
           <img class="post-image" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
           <p class="post-description"> <?php echo $post['description']; ?></p>
-          <form action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
+
+          <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
             <input type="text" style="display:none" hidden name="post_id" value="<?= $post['id']?>">
             <button type="submit" class="delete" name="likes_add">
               <i class="far fa-heart likes"></i>
               <?php echo $post['likes']?>
               <?php //$likes = getPostLikes($_SESSION['user']['id'], $pdo);?>
             <?php  //foreach($likes as $like): ?>
-
-
             </button>
           </form>
 <!--likes send to likes php and cound likes -->

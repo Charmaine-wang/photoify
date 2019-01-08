@@ -21,8 +21,11 @@ if(isset($_POST['likes_add'])){
   $statement = $pdo->prepare('SELECT likes FROM posts WHERE id = :id');
   $statement->bindParam(':id', $postId, PDO::PARAM_INT);
   $statement->execute();
-  $currentLikes = (int) $statement->fetch(PDO::FETCH_ASSOC);
+  $currentLikes = $statement->fetch(PDO::FETCH_ASSOC);
 
+  $currentLikes = (int)$currentLikes['likes'];
+
+  // Remove Like
   if ($hasLiked) {
     $statement = $pdo->prepare('DELETE FROM likes WHERE post_id = :post_id AND user_id = :user_id');
     $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
@@ -35,6 +38,8 @@ if(isset($_POST['likes_add'])){
     $hej = $currentLikes - 1;
     $statement->bindParam(':likes', $hej,  PDO::PARAM_INT);
     $statement->execute();
+
+    // Add like
   } else {
     $statement = $pdo->prepare('INSERT INTO likes(user_id, post_id) VALUES(:user_id, :post_id)');
     $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
@@ -43,14 +48,16 @@ if(isset($_POST['likes_add'])){
 
     $statement = $pdo->prepare('UPDATE posts SET likes = :likes WHERE id = :id');
     $statement->bindParam(':id', $postId, PDO::PARAM_INT);
+
     $hej = $currentLikes + 1;
+
     $statement->bindParam(':likes', $hej,  PDO::PARAM_INT);
     $statement->execute();
 
   }
 
 
-redirect('/posts.php');
+redirect('/posts.php#'.$postId);
 
 
 

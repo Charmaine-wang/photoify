@@ -14,15 +14,7 @@ posts.forEach(post => {
   });
 });
 
-// if (window.location.href == 'http://localhost:8888/index.php') {
-//
-//   const navbar = document.querySelector(".navbar-nav");
-//
-//   const startNav = navbar.classList.add('start-navbar');
-//
-//   navbar.classList.remove('.navbar-nav')
-//   console.log(startNav)
-//
-// } else {
-//   console.log('ÄNDRA TILLBAKA TILL GAMLA KLASSEN');
-// }
+const firstPage = document.querySelectot(".firstpage-sek");
+
+
+firstPage.scrollIntoView()
