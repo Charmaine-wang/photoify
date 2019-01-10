@@ -1,6 +1,8 @@
 <?php require __DIR__.'/views/header.php'; ?>
 <?php //if (isset($_SESSION['user'])): ?>
 <!-- UPLOAD IMAGE -->
+<!-- <article class="post-container"> -->
+
 <article class="posts-article">
   <form action="app/posts/store.php" method="post" enctype="multipart/form-data" class="posts-form">
     <div class="form-group">
@@ -34,12 +36,21 @@
 
 <div data-id="<?= $post['id']?>" class="img-pop modal">
   <!-- The Close Button -->
-  <span class="close">&times;</span>
+  <span data-id="<?= $post['id']?>" class="close">&times;</span>
 
   <div class="description-container">
     <div class="container">
       <img data-id="<?= $post['id']?>" class="image-clicked" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
-      <i class="far fa-heart likes"></i>
+      <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
+        <input type="text" style="display:none" hidden name="post_id" value="<?= $post['id']?>">
+        <button type="submit" class="delete" name="likes_add">
+      <i class="far fa-heart likes-heart"></i>
+      <p class="likes"><?php echo $post['likes']?></p>
+    </button>
+  </form>
+  <div class="form-group">
+    <label for="likes_add"></label>
+  </div>
     </div>
 
 <!-- use session to get user???-->
@@ -75,7 +86,6 @@
 
         <?php endforeach;?>
 
-
-  <?php //endif; ?>
+<!-- </article> -->
 
 <?php require __DIR__.'/views/footer.php'; ?>

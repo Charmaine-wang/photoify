@@ -36,7 +36,7 @@ var modalImg = [...document.querySelectorAll(".img01")];
 
 images.forEach(img => {
   img.onclick = function() {
-    hamburgerIcon.classList.remove("hamburger-icon")
+    hamburgerIcon.classList.remove("hamburger-icon");
     const id = event.target.dataset.id;
     var imagesPop = [...document.querySelectorAll(`.img-pop[data-id="${id}"]`)];
     imagesPop.forEach(imgPop => {
@@ -57,11 +57,13 @@ descriptions.forEach(description => {
 });
 
 // Get the <span> element that closes the modal
-var spander = document.querySelectorAll(`.close[data-id="${id}"]`);
+var spander = document.querySelectorAll(".close");
 
 spander.forEach(span => {
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
+    const id = event.target.dataset.id;
+    var imagesPop = [...document.querySelectorAll(`.img-pop[data-id="${id}"]`)];
     imagesPop.forEach(imgPop => {
       imgPop.style.display = "none";
     });

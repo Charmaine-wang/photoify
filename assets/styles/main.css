@@ -136,7 +136,7 @@ body {
 }
 
 .nav-ist__hidden {
-  transform: translateX(100vw);
+  transform: translateX(110vw);
 }
 
 .nav-ist__visible {
@@ -247,7 +247,12 @@ body {
   margin-top: 10%;
 }
 
-/*POST ARTICLE FORM*/
+/* POST ARTICLE FORM*/
+.post-conatiner {
+  display: flex;
+  flex-direction: column;
+}
+
 .posts-article {
   height: 20%;
 }
@@ -360,11 +365,10 @@ body {
   height: 100vh;
 }
 
-.likes {
+.likes-heart {
   font-size: 40px;
   position: absolute;
-  align-self: flex-end;
-  padding: 20px;
+  color: red;
 }
 
 .container {
