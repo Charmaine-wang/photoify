@@ -2,12 +2,12 @@
 
 if(!isset($page)){
   $page = '';
-}
+};
 
 if ($page === 'index'):?>
 
 
-<div class="firstpage-sek">
+<div id="firstpage-sek">
   <div class="firstpage-grey-box">
     <h1 class="header-firstpage">PHOTOIFY</h1>
   </div>

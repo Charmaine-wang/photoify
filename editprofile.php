@@ -4,21 +4,21 @@
                 <h1>Update profile</h1>
 
 
-                <form action="app/users/profile_edit.php" method="post">
+                <form class="editpro-form" action="app/users/profile_edit.php" method="post">
 
                   <div class="form-group edit-group">
                       <label class="signup-label"  for="name">NAME</label>
-                      <input class="form-control" type="name" name="name" value="<?= $_SESSION['user']['name']?>">
+                      <input class="signup-text" type="name" name="name" value="<?= $_SESSION['user']['name']?>">
                   </div><!-- /form-group -->
 
                   <div class="form-group edit-group">
                       <label class="signup-label" for="username">USERNAME</label>
-                      <input class="form-control" type="username"  name="username" value="<?= $_SESSION['user']['username']?>">
+                      <input class="signup-text" type="username"  name="username" value="<?= $_SESSION['user']['username']?>">
                   </div><!-- /form-group -->
 
                     <div class="form-group edit-group">
                         <label class="signup-label" for="email">EMAIL</label>
-                        <input class="form-control" type="email" name="email" value="<?= $_SESSION['user']['email']?>">
+                        <input class="signup-text" type="email" name="email" value="<?= $_SESSION['user']['email']?>">
                     </div><!-- /form-group -->
 
                     <div class="form-group edit-group">
@@ -28,22 +28,22 @@
                     </div>
                     <div class="form-group edit-group">
                         <label class="signup-label" for="new_password">NEW PASSWORD</label>
-                        <input class="form-control" type="password" name="new_password" placeholder="password">
+                        <input class="signup-text" type="password" name="new_password" placeholder="password">
                     </div><!-- /form-group -->
 
                     <div class="form-group edit-group">
-                        <label class="signup-label" for="repeat_password">REPEAT NEW Password</label>
-                        <input class="form-control" type="password" name="repeat_password" placeholder="password">
+                        <label class="signup-label" for="repeat_password">REPEAT NEW PASSWORD</label>
+                        <input class="signup-text" type="password" name="repeat_password" placeholder="password">
                     </div><!-- /form-group -->
 
 
                     <div class="form-group edit-group">
-                        <label class="signup-label" for="password">Confirm with Password</label>
-                        <input class="form-control" type="password" name="confirm_password" placeholder="password" required>
+                        <label class="signup-label" for="password">CONFIRM WITH PASSWORD</label>
+                        <input class="signup-text" type="password" name="confirm_password" placeholder="password" required>
                     </div><!-- /form-group -->
 
 
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="create-button update-btn">UPDATE</button>
 </form>
 
 </article>

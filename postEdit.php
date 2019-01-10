@@ -1,8 +1,7 @@
-<?php require __DIR__.'/views/header.php'; ?>
+<!-- <?php require __DIR__.'/views/header.php'; ?>
 
-<!-- UPLOAD IMAGE -->
 <article class="posts-article">
-  <form action="app/posts/store.php" method="post" enctype="multipart/form-data" class="posts-form">
+  <form action="app/posts/store.php" method="post" enctype="multipart/form-data" class="posts-form"> -->
     <div class="form-group">
         <label for="post_image">Image</label>
         <input class="form-control" type="file" name="post_image">
@@ -15,28 +14,16 @@
 
       <button type="submit" class="btn_posts">Upload post</button>
 </form>
-</article>
 
-
-<!--SMALL IMAGE TOGETHER-->
 <div class="post-img-des">
+
+
 <!-- get function where i have select from database -->
       <?php $posts = getPost($_SESSION['user']['id'], $pdo); ?>
       <!-- foreach image and description -->
       <?php  foreach($posts as $post): ?>
         <!-- post all img and description -->
-          <img data-id="<?= $post['imgId']?>" class="post-image" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
-          <?php endforeach;?>
-</div>
-
-
-<article class="click-on-img">
-<!-- get function where i have select from database -->
-      <?php $posts = getPost($_SESSION['user']['id'], $pdo); ?>
-      <!-- foreach image and description -->
-      <?php  foreach($posts as $post): ?>
-        <!-- post all img and description -->
-          <img class="clicked" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
+          <img class="post-image" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
           <p class="post-description"> <?php echo $post['description']; ?></p>
 
           <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
@@ -80,8 +67,6 @@
           </form>
       </article>
 <?php endforeach;?>
-
-
 
 
 <?php require __DIR__.'/views/footer.php'; ?>

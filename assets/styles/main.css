@@ -14,7 +14,7 @@ body {
   /* IE9 Compat Modes */
 }
 
-.firstpage-sek {
+#firstpage-sek {
   display: flex;
   /* position: fixed; */
   /* animation-name: example;
@@ -28,6 +28,11 @@ body {
   height: 100vh;
   background-color: #262626;
   overflow: hidden;
+}
+
+.animation {
+  height: 0 !important;
+  transition: 2s;
 }
 
 .firstpage-grey-box {
@@ -179,6 +184,7 @@ body {
 .signup-text {
   width: 290px;
   height: 45px;
+  /* background-color: rgba(232, 255, 89, 0.75); */
   border-radius: 5px;
 }
 
@@ -226,6 +232,37 @@ body {
   align-self: center;
   color: #e8ff59;
   font-size: 36px;
+}
+
+/*EDIT PROFILE*/
+.editpro-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-btn {
+  align-self: center;
+  margin-top: 10%;
+}
+
+/*POST ARTICLE FORM*/
+.posts-article {
+  height: 20%;
+}
+
+/*POST USER*/
+.post-img-des {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post-image {
+  width: 175px;
+  height: 179px;
+  border-radius: 50%;
+  margin: 2%;
+  border: 2px solid #e8ff59;
 }
 
 /* Media queries for smaller window */
