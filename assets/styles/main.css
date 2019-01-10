@@ -102,7 +102,9 @@ body {
   z-index: 3;
 }
 
-.nav-ist, .nav-ist__hidden, .nav-ist__visible {
+.nav-ist,
+.nav-ist__hidden,
+.nav-ist__visible {
   z-index: -1;
 }
 
@@ -263,6 +265,181 @@ body {
   border-radius: 50%;
   margin: 2%;
   border: 2px solid #e8ff59;
+}
+
+.fas {
+  font-size: 28px;
+}
+
+.post-edit {
+  transform: translateX(100px);
+}
+
+.slide-edit {
+  transform: translateX(50px);
+  display: block;
+  width: 120px;
+  height: 50px;
+  background-color: chartreuse;
+}
+
+/*POST CLICK*/
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  transition: 0.3s;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100vw;
+  /* Full width */
+  height: 100vh;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/ opacity */
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* IMAGE */
+.description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-clicked {
+  width: 100vw;
+  height: 100vh;
+}
+
+.likes {
+  font-size: 40px;
+  position: absolute;
+  align-self: flex-end;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.slide-name {
+  text-align: center;
+  /* transform:  */
+  background-color: #E8FF59;
+  height: 60px;
+  width: 300px;
+  animation-name: example;
+  animation-duration: 4s;
+  position: absolute;
+  animation-fill-mode: forwards;
+  transform: translateY(50%) rotate(-90deg);
+  left: -120px;
+  bottom: 120px;
+}
+
+@keyframes example {
+  0% {}
+
+  50% {
+    bottom: 50%;
+    left: -120px;
+  }
+
+  100% {
+    left: -180px;
+    bottom: 50%;
+  }
+}
+
+.description-btn {
+  height: 100px;
+  width: 100px;
+  background-color: #E8FF59;
+  border-radius: 50%;
+  position: relative;
+  margin-top: -50px;
+}
+
+.description-btn i {
+  font-size: 35px;
+  margin: 10% 0 0 34%;
+}
+
+.description-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 40vh;
+  background-color: #E8FF59;
+  margin-top: -50px;
+}
+
+.text-des {
+  align-self: center;
+  font-size: 28px;
+}
+
+.fa-ellipsis-h {
+  font-size: 30px;
+  padding: 2%;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
 }
 
 /* Media queries for smaller window */

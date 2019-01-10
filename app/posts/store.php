@@ -48,6 +48,7 @@ $_SESSION['posts'] = [
     'created_at' => $created,
 
 ];
+
 };
 
 
