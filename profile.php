@@ -29,7 +29,7 @@
   <!--USERNAME --> <p> username:<?= $_SESSION['user']['username']; ?></p> <br>
   <!--BIO --><p> bio:<?= $_SESSION['user']['profile_bio'];?></p> <br>
 
-  <a class="" href="editprofile.php">EDIT</a>
+  <a class="editprofile-btn" href="editprofile.php">EDIT</a>
 <!-- </form> -->
 <!--<a href="/app/users/delete.php">Delete my user</a> -->
 

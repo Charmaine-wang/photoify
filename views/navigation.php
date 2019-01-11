@@ -91,6 +91,12 @@ if ($page === 'index'):?>
     <?php endif ?>
 </li><!-- /nav-item -->
 
+<li class="nav-item-mobile">
+    <?php if (isset($_SESSION['user'])): ?>
+    <a class="nav-link-mobile <?php echo $_SERVER['SCRIPT_NAME'] === '/feed.php' ? 'active' : ''; ?>" href="/feed.php">FEED</a>
+    <?php endif ?>
+</li><!-- /nav-item -->
+
       <li class="nav-item-mobile">
           <?php if (isset($_SESSION['user'])): ?>
               <a class="nav-link-mobile" href="/app/users/logout.php">LOGOUT</a>
@@ -106,12 +112,14 @@ if ($page === 'index'):?>
 </nav><!-- /navbar -->
 
 <?php
+if (isset($_SESSION['user'])){
 $name = $_SESSION['user']['name'];
 $email = $_SESSION['user']['email'];
 $username = $_SESSION['user']['username'];
 $profile_bio = $_SESSION['user']['profile_bio'];
-$created = $_SESSION['user']['created_at']
 
+
+}
 ?>
 
 <?php endif; ?>

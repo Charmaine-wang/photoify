@@ -17,32 +17,41 @@ hamburgerIcon.addEventListener("click", () => {
 const posts = [...document.querySelectorAll(".change-post")];
 
 posts.forEach(post => {
-  post.addEventListener("click", event => {
-    const id = event.target.dataset.id;
-    const postEdit = document.querySelector(`.post-edit[data-id="${id}"]`);
-    postEdit.classList.toggle("slide-edit");
-    // postEdit.classList.add('.slide-edit');
+  post.addEventListener("click", () => {
+    const id = post.dataset.id;
+
+    //dont need to selectAll only one with id
+    const postsEdit = document.querySelector(`.post-edit[data-id="${id}"]`);
+
+    postsEdit.classList.toggle("slide-edit");
   });
 });
+
+// });
 
 // Get the modal
 // var imagesPop = [...document.querySelectorAll(".img-pop")];
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var images = [...document.querySelectorAll(".img-small")];
-var modalImg = [...document.querySelectorAll(".img01")];
+// var modalImg = [...document.querySelectorAll(".img01")];
 // var captionText = document.getElementById("caption");
 
 images.forEach(img => {
   img.onclick = function() {
+    scrollTo(0, 0)
     hamburgerIcon.classList.remove("hamburger-icon");
     const id = event.target.dataset.id;
-    var imagesPop = [...document.querySelectorAll(`.img-pop[data-id="${id}"]`)];
+    const imagesPop = [...document.querySelectorAll(`.img-pop[data-id="${id}"]`)];
+
     imagesPop.forEach(imgPop => {
+
       imgPop.style.display = "block";
     });
   };
+
 });
+
 
 const descriptions = [...document.querySelectorAll(".description-btn")];
 const texts = [...document.querySelectorAll(".description-text")];

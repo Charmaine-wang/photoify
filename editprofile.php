@@ -23,7 +23,7 @@
 
                     <div class="form-group edit-group">
                       <label class="signup-label" for="profile_bio">PROFILBIO</label>
-                      <textarea class="form-control" type="profile_bio" name="profile_bio"rows="8" cols="80"><?= $_SESSION['user']['profile_bio'] ?>
+                      <textarea class="form-control textarea" type="profile_bio" name="profile_bio"rows="8" cols="80"><?= $_SESSION['user']['profile_bio'] ?>
                       </textarea>
                     </div>
                     <div class="form-group edit-group">
