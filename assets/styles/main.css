@@ -2,18 +2,6 @@ body {
   background-color: #262626;
 }
 
-@font-face {
-  font-family: "MyFont";
-  src: url("fonts/KiteOne-Regular.woff") format("woff");
-  /* IE9 Compat Modes */
-}
-
-@font-face {
-  font-family: "NavFont";
-  src: url("fonts/italiana.woff") format("woff");
-  /* IE9 Compat Modes */
-}
-
 #firstpage-sek {
   display: flex;
   /* position: fixed; */
@@ -174,6 +162,7 @@ body {
 
 .form-create {
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
 }
 
@@ -217,6 +206,7 @@ body {
 
 .profile-info p {
   color: #e8ff59;
+  font-family: SelfFont;
   font-size: 24px;
 }
 
@@ -232,6 +222,7 @@ body {
 
 .name-rub {
   align-self: center;
+  font-family: NavFont;
   color: #e8ff59;
   font-size: 36px;
 }
@@ -248,11 +239,10 @@ body {
 }
 
 /* POST ARTICLE FORM*/
-.post-conatiner {
+/* .post-conatiner {
   display: flex;
   flex-direction: column;
-}
-
+} */
 .posts-article {
   height: 20%;
 }
@@ -265,10 +255,10 @@ body {
 }
 
 .post-image {
-  width: 175px;
-  height: 179px;
-  border-radius: 50%;
-  margin: 2%;
+  width: 190px;
+  height: 187px;
+  border-radius: 1%;
+  margin: 1%;
   border: 2px solid #e8ff59;
 }
 
@@ -277,11 +267,11 @@ body {
 }
 
 .post-edit {
-  transform: translateX(100px);
+  transform: translateX(0px);
 }
 
 .slide-edit {
-  transform: translateX(50px);
+  transform: translateX(0px);
   display: block;
   width: 120px;
   height: 50px;
@@ -371,7 +361,7 @@ body {
   color: red;
 }
 
-.container {
+.container-post {
   display: flex;
   justify-content: flex-end;
 }
@@ -382,6 +372,8 @@ body {
   background-color: #E8FF59;
   height: 60px;
   width: 300px;
+  font-family: NavFont;
+  font-size: 38px;
   animation-name: example;
   animation-duration: 4s;
   position: absolute;

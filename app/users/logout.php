@@ -8,5 +8,5 @@ require __DIR__.'/../autoload.php';
 if (isset($_SESSION['user'])) {
   unset($_SESSION['user']);
   // code...
-  redirect('/');
+  redirect('/login.php');
 }

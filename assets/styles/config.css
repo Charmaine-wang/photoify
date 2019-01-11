@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("fonts/KiteOne-Regular.woff") format("woff");
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: "NavFont";
+  src: url("fonts/italiana.woff") format("woff");
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: "SelfFont";
+  src: url("fonts/self_modern.woff") format("woff");
+  /* IE9 Compat Modes */
+}

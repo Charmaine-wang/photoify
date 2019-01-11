@@ -23,9 +23,6 @@ if ($page === 'index'):?>
         <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="/index.php">HOME</a>
     </li><!-- /nav-item -->
 
-    <li class="nav-item">
-        <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/posts.php' ? 'active' : ''; ?>" href="/posts.php">POSTS</a>
-    </li><!-- /nav-item -->
 
       <li class="nav-item">
       <?php if (!isset($_SESSION['user'])): ?>
@@ -75,9 +72,6 @@ if ($page === 'index'):?>
         <a class="nav-link-mobile <?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>" href="/index.php">HOME</a>
     </li><!-- /nav-item -->
 
-    <li class="nav-item-mobile">
-        <a class="nav-link-mobile <?php echo $_SERVER['SCRIPT_NAME'] === '/posts.php' ? 'active' : ''; ?>" href="/posts.php">POSTS</a>
-    </li><!-- /nav-item -->
 
       <li class="nav-item-mobile">
       <?php if (!isset($_SESSION['user'])): ?>
@@ -110,5 +104,14 @@ if ($page === 'index'):?>
     </ul><!-- /navbar-nav -->
         <?php /*endif;*/ ?>
 </nav><!-- /navbar -->
+
+<?php
+$name = $_SESSION['user']['name'];
+$email = $_SESSION['user']['email'];
+$username = $_SESSION['user']['username'];
+$profile_bio = $_SESSION['user']['profile_bio'];
+$created = $_SESSION['user']['created_at']
+
+?>
 
 <?php endif; ?>

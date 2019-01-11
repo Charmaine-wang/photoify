@@ -1,4 +1,7 @@
-<?php $page = 'index' ?> 
+<?php $page = 'index' ?>
 <?php $header = require __DIR__.'/views/header.php'; ?>
 
-<?php require __DIR__.'/views/footer.php'; ?>
+<script src="/assets/scripts/firstpage.js"></script>
+
+</body>
+</html>

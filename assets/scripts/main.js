@@ -5,7 +5,6 @@
 const hamburgerIcon = document.querySelector(".hamburger-icon");
 const hamburgerMenu = document.querySelector(".nav-ist");
 const nav = document.querySelector(".desktop-nav");
-const firstpage = document.querySelector("#firstpage-sek");
 //
 
 // const postImage = [...document.querySelectorAll(".post-image")];
@@ -66,6 +65,7 @@ spander.forEach(span => {
     var imagesPop = [...document.querySelectorAll(`.img-pop[data-id="${id}"]`)];
     imagesPop.forEach(imgPop => {
       imgPop.style.display = "none";
+      hamburgerIcon.classList.add("hamburger-icon");
     });
   };
 });

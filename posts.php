@@ -30,7 +30,7 @@
         <!-- post all img and description -->
           <img data-id="<?= $post['id']?>" class="post-image img-small" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
 
-</div>
+
 
 
 
@@ -39,7 +39,7 @@
   <span data-id="<?= $post['id']?>" class="close">&times;</span>
 
   <div class="description-container">
-    <div class="container">
+    <div class="container-post">
       <img data-id="<?= $post['id']?>" class="image-clicked" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
       <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
         <input type="text" style="display:none" hidden name="post_id" value="<?= $post['id']?>">
@@ -54,7 +54,7 @@
     </div>
 
 <!-- use session to get user???-->
-    <h3 class="slide-name">CHARREBARRE</h3>
+    <h3 class="slide-name"><?php  echo $name; ?></h3>
 
     <div class="description-btn"><i class="fas fa-arrow-up"></i></div>
     <div class="description-text"><i class="fas fa-ellipsis-h change-post"></i>
@@ -82,6 +82,7 @@
 
 
   </div>
+</div><!-- post-img-des (div)-->
 </div>
 
         <?php endforeach;?>
