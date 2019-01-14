@@ -59,11 +59,11 @@ if ($page === 'index'):?>
 
   <div class="mobile-nav">
       <div class="hamburger-icon">
-  <div class="bar-1"></div>
-  <div class="bar-2"></div>
-  <div class="bar-3"></div>
-  <!-- <i class="fa fa-bars fa-2x" aria-hidden="true"></i> -->
-</div>
+        <div class="bar-1"></div>
+        <div class="bar-2"></div>
+        <div class="bar-3"></div>
+
+      </div>
 
 
     <ul class="nav-ist nav-ist__hidden">
@@ -109,6 +109,7 @@ if ($page === 'index'):?>
 
     </ul><!-- /navbar-nav -->
         <?php /*endif;*/ ?>
+      </div>
 </nav><!-- /navbar -->
 
 <?php
@@ -117,6 +118,7 @@ $name = $_SESSION['user']['name'];
 $email = $_SESSION['user']['email'];
 $username = $_SESSION['user']['username'];
 $profile_bio = $_SESSION['user']['profile_bio'];
+$profile_pic = $_SESSION['user']['profile_pic'];
 
 
 }

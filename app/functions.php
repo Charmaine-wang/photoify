@@ -39,13 +39,15 @@ function getLikes(int $userID, $pdo){
   return $posts;
 }
 
+
 function getAllPosts($pdo){
 
-  $statement = $pdo->prepare('SELECT * FROM posts');
+  $statement = $pdo->prepare('SELECT * FROM posts ORDER BY created_at = :created_at');
 
   $statement->execute();
 
   $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 
     return $allPosts;
 }

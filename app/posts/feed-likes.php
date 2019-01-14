@@ -50,15 +50,20 @@ if(isset($_POST['likes_add'])){
     $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
 
     $statement->execute();
-}
-
-$statement = $pdo->query("SELECT COUNT(*) AS likes FROM likes WHERE post_id = '$postId';");
-$likes = $statement->fetchAll(PDO::FETCH_ASSOC);
-$statement->execute();
-
-
-	$likes = json_encode($likes);
-	header('Content-Type: application/json');
-	echo $likes;
 
   }
+
+
+
+redirect('/feed.php#'.$postId);
+
+
+
+
+    // $statement = $pdo->prepare('UPDATE posts SET description = :description, id = :id WHERE id = :id');
+
+
+  // $likePost = filter_var($_POST['like'], FILTER_SANITIZE_EMAIL);
+
+
+}

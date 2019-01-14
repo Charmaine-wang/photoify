@@ -40,12 +40,13 @@
   <!-- The Close Button -->
   <span data-id="<?= $post['id']?>" class="close">&times;</span>
 
+
   <div class="description-container">
     <div class="container-post">
       <img data-id="<?= $post['id']?>" class="image-clicked" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
-      <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
-        <input type="text" style="display:none" hidden name="post_id" value="<?= $post['id']?>">
-        <button type="submit" class="number-likes" name="likes_add">
+      <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post">
+        <input type="text" hidden name="post_id" value="<?= $post['id']?>">
+        <button type="submit" class="delete" name="likes_add">
 <div class="likes-div">
       <i class="far fa-heart likes-heart"></i>
       <p class="likes"><?php echo $post['likes']?></p>
@@ -56,6 +57,7 @@
     <label for="likes_add"></label>
   </div>
     </div>
+
 
 <!-- use session to get user???-->
     <h3 class="slide-name"><?php  echo $name; ?></h3>

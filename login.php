@@ -16,7 +16,7 @@
             <small class="form-text text-muted"><br>Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary create-button">Login</button>
     </form>
 </article>
 

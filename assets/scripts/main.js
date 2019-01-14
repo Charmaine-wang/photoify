@@ -19,7 +19,6 @@ const posts = [...document.querySelectorAll(".change-post")];
 posts.forEach(post => {
   post.addEventListener("click", () => {
     const id = post.dataset.id;
-
     //dont need to selectAll only one with id
     const postsEdit = document.querySelector(`.post-edit[data-id="${id}"]`);
 
@@ -39,19 +38,18 @@ var images = [...document.querySelectorAll(".img-small")];
 
 images.forEach(img => {
   img.onclick = function() {
-    scrollTo(0, 0)
+    scrollTo(0, 0);
     hamburgerIcon.classList.remove("hamburger-icon");
     const id = event.target.dataset.id;
-    const imagesPop = [...document.querySelectorAll(`.img-pop[data-id="${id}"]`)];
+    const imagesPop = [
+      ...document.querySelectorAll(`.img-pop[data-id="${id}"]`)
+    ];
 
     imagesPop.forEach(imgPop => {
-
       imgPop.style.display = "block";
     });
   };
-
 });
-
 
 const descriptions = [...document.querySelectorAll(".description-btn")];
 const texts = [...document.querySelectorAll(".description-text")];
@@ -78,3 +76,21 @@ spander.forEach(span => {
     });
   };
 });
+
+// const formsLikes = document.querySelectorAll(".likes");
+//
+// formsLikes.forEach(form => {
+//   form.addEventListener("submit", event => {
+//     event.preventDefault();
+//
+//     const formLikes = new FormData(form);
+//
+//     fetch("app/posts/likes.php", {
+//       method: "POST",
+//       body: formLikes
+//     })
+//       .then(response => response.json())
+//       .then(json => console.log(json))
+//       .then(json => form.nextElementSibling.textContent = json[0].likes + " likes")
+//   });
+// });
