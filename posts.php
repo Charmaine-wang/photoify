@@ -21,19 +21,14 @@
 
 
 <!--SMALL IMAGE TOGETHER-->
+<div class="edit-div">
+
+
 <div class="post-img-des">
       <?php $posts = getPost($_SESSION['user']['id'], $pdo); ?>
         <?php  foreach($posts as $post): ?>
 
-<!-- get function where i have select from database -->
-
-      <!-- foreach image and description -->
-
-        <!-- post all img and description -->
           <img data-id="<?= $post['id']?>" class="post-image img-small" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
-
-
-
 
 
 <div data-id="<?= $post['id']?>" class="img-pop modal">
@@ -44,18 +39,17 @@
   <div class="description-container">
     <div class="container-post">
       <img data-id="<?= $post['id']?>" class="image-clicked" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
-      <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post">
-        <input type="text" hidden name="post_id" value="<?= $post['id']?>">
-        <button type="submit" class="delete" name="likes_add">
-<div class="likes-div">
-      <i class="far fa-heart likes-heart"></i>
-      <p class="likes"><?php echo $post['likes']?></p>
-</div>
-    </button>
+
+      <form id="<?= $post['id']?>"class="likes-form" action="app/posts/likes.php"  method="post">
+        <input type="hidden" name="post_id" value="<?= $post['id']?>">
+        <button type="submit" class="delete" />
+          <div class="likes-div">
+                <i class="far fa-heart likes-heart"></i>
+                <p class="likes" data-id="<?= $post['id'] ?>"><?php echo $post['likes']?></p>
+          </div>
+        </button>
   </form>
-  <div class="form-group">
-    <label for="likes_add"></label>
-  </div>
+
     </div>
 
 
@@ -94,7 +88,7 @@
     <?php endforeach;?>
 
 </div><!-- post-img-des (div)-->
-
+</div>
 
 
 <!-- </article> -->
