@@ -77,20 +77,28 @@ spander.forEach(span => {
   };
 });
 
-// const formsLikes = document.querySelectorAll(".likes");
-//
-// formsLikes.forEach(form => {
-//   form.addEventListener("submit", event => {
-//     event.preventDefault();
-//
-//     const formLikes = new FormData(form);
-//
-//     fetch("app/posts/likes.php", {
-//       method: "POST",
-//       body: formLikes
-//     })
-//       .then(response => response.json())
-//       .then(json => console.log(json))
-//       .then(json => form.nextElementSibling.textContent = json[0].likes + " likes")
-//   });
-// });
+const formsLikes = document.querySelectorAll(".likes-form");
+
+formsLikes.forEach(form => {
+  form.addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch('app/posts/likes.php', {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(json => form[1].children[0].children[1].textContent = json);
+  });
+});
+
+const likesHeart = document.querySelectorAll(".likes-heart");
+
+likesHeart.forEach(heart => {
+  if (heart) {
+    heart: active.style.color = "red";
+  }
+})
