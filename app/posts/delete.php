@@ -8,19 +8,11 @@ require __DIR__.'/../autoload.php';
 
 if(isset($_POST['delete_post'])){
   $delete = $_POST['delete_post'];
-
-$statement = $pdo->query("SELECT content FROM posts WHERE id = '$delete' ");
-
+  $statement = $pdo->query("SELECT content FROM posts WHERE id = '$delete' ");
   $statement->execute();
   $post = $statement->fetch(PDO::FETCH_ASSOC);
-
 unlink(__DIR__.'/upload-image/'. $post['content']);
-
-
-
-$statement = $pdo->prepare('DELETE FROM posts WHERE id = :id');
-// unlink(__DIR__.'/upload-image/'. $delete);
-
+  $statement = $pdo->prepare('DELETE FROM posts WHERE id = :id');
 //if not die
 if (!$statement)
 {
@@ -36,7 +28,6 @@ $_SESSION['posts'] = [
     'content' => $postName,
     'description' => $description,
     'created_at' => $created,
-
 ];
 
 }

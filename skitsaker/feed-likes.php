@@ -11,7 +11,6 @@ require __DIR__.'/../autoload.php';
 if(isset($_POST['likes_add'])){
   $userId = (int) $_SESSION['user']['id'];
   $postId = (int) $_POST['post_id'];
-
   $hasLiked = $pdo->prepare('SELECT * FROM likes WHERE post_id = :post_id AND user_id = :user_id');
   $hasLiked->bindParam(':post_id', $postId, PDO::PARAM_INT);
   $hasLiked->bindParam(':user_id', $userId, PDO::PARAM_INT);
@@ -21,8 +20,8 @@ if(isset($_POST['likes_add'])){
   $statement = $pdo->prepare('SELECT likes FROM posts WHERE id = :id');
   $statement->bindParam(':id', $postId, PDO::PARAM_INT);
   $statement->execute();
-  $currentLikes = $statement->fetch(PDO::FETCH_ASSOC);
 
+  $currentLikes = $statement->fetch(PDO::FETCH_ASSOC);
   $currentLikes = (int)$currentLikes['likes'];
 
   // Remove Like
@@ -31,39 +30,25 @@ if(isset($_POST['likes_add'])){
     $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
     $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
     $statement->execute();
-
     $statement = $pdo->prepare('UPDATE posts SET likes = :likes-1 WHERE id = :id');
     $statement->bindParam(':id', $postId, PDO::PARAM_INT);
     $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
-
     $statement->execute();
-
     // Add like
-  } else {
-    $statement = $pdo->prepare('INSERT INTO likes(user_id, post_id) VALUES(:user_id, :post_id)');
-    $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
-    $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
-    $statement->execute();
+    } else {
+      $statement = $pdo->prepare('INSERT INTO likes(user_id, post_id) VALUES(:user_id, :post_id)');
+      $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
+      $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
+      $statement->execute();
 
-    $statement = $pdo->prepare('UPDATE posts SET likes = :likes+1 WHERE id = :id');
-    $statement->bindParam(':id', $postId, PDO::PARAM_INT);
-    $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
+      $statement = $pdo->prepare('UPDATE posts SET likes = :likes+1 WHERE id = :id');
+      $statement->bindParam(':id', $postId, PDO::PARAM_INT);
+      $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
 
-    $statement->execute();
+      $statement->execute();
+
+    }
+
+  redirect('/feed.php#'.$postId);
 
   }
-
-
-
-redirect('/feed.php#'.$postId);
-
-
-
-
-    // $statement = $pdo->prepare('UPDATE posts SET description = :description, id = :id WHERE id = :id');
-
-
-  // $likePost = filter_var($_POST['like'], FILTER_SANITIZE_EMAIL);
-
-
-}

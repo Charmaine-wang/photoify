@@ -10,3 +10,5 @@ if (isset($_SESSION['user'])) {
   // code...
   redirect('/login.php');
 }
+
+  redirect('/login.php');

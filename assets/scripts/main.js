@@ -95,10 +95,10 @@ formsLikes.forEach(form => {
   });
 });
 
-const likesHeart = document.querySelectorAll(".likes-heart");
-
-likesHeart.forEach(heart => {
-  if (heart) {
-    heart: active.style.color = "red";
-  }
-})
+// const likesHeart = document.querySelectorAll(".likes-heart");
+//
+// likesHeart.forEach(heart => {
+//   if (heart) {
+//     heart.style.color = "red";
+//   }
+// })

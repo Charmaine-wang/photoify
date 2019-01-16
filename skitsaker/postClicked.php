@@ -1,19 +1,19 @@
 <?php require __DIR__.'/views/header.php'; ?>
 <!-- get function where i have select from database -->
-      <?php $posts = getPost($_SESSION['user']['id'], $pdo); ?>
+<?php $posts = getPost($_SESSION['user']['id'], $pdo); ?>
       <!-- foreach image and description -->
-      <?php  foreach($posts as $post): ?>
+<?php  foreach($posts as $post): ?>
         <!-- post all img and description -->
-          <img class="post-image-clicked" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
-          <p class="post-description-clicked"> <?php echo $post['description']; ?></p>
-
-          <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
-            <input type="text-clicked" style="display:none" hidden name="post_id" value="<?= $post['id']?>">
-            <button type="submit" class="delete" name="likes_add">
+<article>
+  <img class="post-image-clicked" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
+  <p class="post-description-clicked"> <?php echo $post['description']; ?></p>
+    <form id="<?= $post['id']?>" action="app/posts/likes.php"  method="post" enctype="multipart/form-data">
+      <input type="text-clicked" style="display:none" hidden name="post_id" value="<?= $post['id']?>">
+      <button type="submit" class="delete" name="likes_add">
               <i class="far fa-heart likes"></i>
               <?php echo $post['likes']?>
-              <?php //$likes = getPostLikes($_SESSION['user']['id'], $pdo);?>
-            <?php  //foreach($likes as $like): ?>
+
+
             </button>
           </form>
 <!--likes send to likes php and cound likes -->
@@ -45,7 +45,7 @@
           </div>
 
           </form>
-      </article>
+</article>
 
 <?php endforeach;?>
 

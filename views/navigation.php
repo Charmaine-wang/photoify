@@ -93,7 +93,7 @@ if ($page === 'index'):?>
 
 <li class="nav-item-mobile">
     <?php if (isset($_SESSION['user'])): ?>
-    <a class="nav-link-mobile <?php echo $_SERVER['SCRIPT_NAME'] === '/feed.php' ? 'active' : ''; ?>" href="/feed.php">FEED</a>
+    <a class="nav-link-mobile <?php echo $_SERVER['SCRIPT_NAME'] === '/allposts.php' ? 'active' : ''; ?>" href="/allposts.php">ALL POSTS</a>
     <?php endif ?>
 </li><!-- /nav-item -->
 
