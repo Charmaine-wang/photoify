@@ -6,7 +6,7 @@
   <form action="app/users/create.php" method="post" class="form-create">
     <div class="form-group">
       <!-- <label class="signup-label"  for="email">EMAIL</label> -->
-      <input class="signup-text" type="email" name="email" id="email" required><br>
+      <input class="signup-text" type="email" name="email" id="email" placeholder="Email" required><br>
       <small class="form-text text-muted">Please provide the your email address.</small>
     </div><!-- /form-group -->
 

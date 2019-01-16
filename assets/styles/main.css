@@ -3,6 +3,74 @@ body {
 }
 
 @media screen and (min-width: 600px) {
+  body {
+    /* background-color: #e0e2db; */
+    background-image: url("images/stairs.jpeg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  h1 {
+    font-family: NavFont;
+    text-align: center;
+  }
+
+  p {
+    color: black;
+    font-size: 24px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  input {
+    width: 290px;
+    height: 35px;
+  }
+
+  .profile-pic-home {
+    height: 320px;
+    width: 320px;
+    border-radius: 50%;
+  }
+
+  .form-create {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-content: space-around;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0 0 4%;
+  }
+
+  .signup-text {
+    width: 290px;
+    height: 35px;
+  }
+
+  .signup-label {
+    color: #e8ff59;
+    font-size: 20px;
+    font-family: MyFont;
+  }
+
+  .form-text {
+    display: none;
+  }
+
+  .create-button {
+    width: 200px;
+    height: 52px;
+    background-color: #e8ff59;
+    border-radius: 5px;
+    font-family: MyFont;
+    align-self: center;
+  }
 
   /*POST USER*/
   .post-img-des {
@@ -267,8 +335,18 @@ body {
     text-align: center;
   }
 
+  p {
+    color: black;
+    font-size: 24px;
+  }
+
   img {
     object-fit: cover;
+  }
+
+  .signup-text {
+    color: white;
+    font-size: 24px;
   }
 
   .login-form {
@@ -533,7 +611,7 @@ body {
 
   .signup-label {
     color: #e8ff59;
-    font-size: 24px;
+    font-size: 20px;
     font-family: MyFont;
   }
 
