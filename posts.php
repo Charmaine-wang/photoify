@@ -27,7 +27,7 @@
         <img data-id="<?= $post['id']?>" class="image-clicked" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
           <form id="<?= $post['id']?>"class="likes-form" action="app/posts/likes.php"  method="post">
             <input type="hidden" name="post_id" value="<?= $post['id']?>">
-            <button type="submit" class=""/>
+            <button type="submit" class="">
               <div class="likes-div">
                 <i class="far fa-heart likes-heart"></i>
                 <p class="likes" data-id="<?= $post['id'] ?>"><?php echo $post['likes']?></p>
@@ -36,16 +36,17 @@
         </form>
       </div>
   <!-- use session to get user???-->
-        <h3 class="slide-name"><?php  echo $name; ?></h3>
+        <h3 class="slide-name"><?php  echo $_SESSION['user']['username']; ?></h3>
           <div class="description-btn"><i class="fas fa-arrow-up"></i></div>
 
           <div class="description-text"><i data-id="<?= $post['id']?>"class="fas fa-ellipsis-h change-post"></i>
-            <p class="text-des"><?php echo $post['description']?></p>
+            <p class="text-des" id="<?= $post['id']?>" ><?php echo $post['description']?></p>
           </div>
           <div data-id="<?= $post['id']?>" class="post-edit">
-          <form action="app/posts/update.php"  method="post">
+          <form action="app/posts/update.php"  class="update-form" method="post">
             <div class="form-group">
               <label for="post_description">Edit description</label>
+              <input type="hidden" name="post_id" value="<?= $post['id']?>">
               <textarea class="form-control descrip-text" type="text" name="post_description"> <?php echo $post['description']; ?></textarea>
             </div>
             <button type="submit" class="post" name="post_id" value="<?= $post['id'] ?>">edit</button>
@@ -63,6 +64,8 @@
   <?php endforeach;?>
   </div><!-- post-img-des (div)-->
 </div>
+
+
 
 
 <?php require __DIR__.'/views/footer.php'; ?>

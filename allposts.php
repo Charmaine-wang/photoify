@@ -1,27 +1,46 @@
 <?php require __DIR__.'/views/header.php'; ?>
 
-<div class="all-posts">
-  <?php $allPosts = getAllPosts($pdo);?>
-    <?php  foreach($allPosts as $postUser):?>
-  <div class="name-box">
-    <img class="feed-profilepic" src="app/users/upload/<?= $postUser['profile_pic']?>" alt="">
-    <!-- want to  put everys profile pic over the pi -->
-    <h1><?= $postUser['username']?></h1>
-  </div>
-  <img class="img-feed" src="app/posts/upload-image/<?= $postUser['content'] ?>" alt="">
-  <p><?= $postUser['description']?></p>
 
-    <form action="app/posts/likes.php" class="likes-form" method="post">
-      <input type="hidden" name="post_id" value="<?= $postUser['id']?>">
-      <button type="submit" class="delete" name="likes_add">
-        <div class="likes-div">
-          <i class="far fa-heart likes-heart"></i>
-          <p class="likes" data-id="<?= $post['id'] ?>"><?php echo $postUser['likes']?></p>
+
+
+  <div class="post-img-des">
+
+    <div class="choose-image-style">
+    <a href="allpost-single.php"><i class="fas fa-image image-style"></i></a>
+    <a href="allposts.php"><i class="far fa-images image-style"></i></a>
+    </div>
+    <?php $allPosts = getAllPosts($pdo);?>
+      <?php  foreach($allPosts as $postUser):?>
+    <img data-id="<?= $postUser['id']?>" class="post-image img-small" src="app/posts/upload-image/<?= $postUser['content'] ?>">
+    <div data-id="<?= $postUser['id']?>" class="img-pop modal">
+      <!-- The Close Button -->
+    <span data-id="<?= $postUser['id']?>" class="close">&times;</span>
+      <div class="description-container">
+      <div class="container-post">
+        <img data-id="<?= $postUser['id']?>" class="image-clicked" src="app/posts/upload-image/<?= $postUser['content'] ?>">
+          <form id="<?= $postUser['id']?>"class="likes-form" action="app/posts/likes.php"  method="post">
+            <input type="hidden" name="post_id" value="<?= $postUser['id']?>">
+            <button type="submit" class="">
+              <div class="likes-div">
+                <i class="far fa-heart likes-heart"></i>
+                <p class="likes" data-id="<?= $postUser['id'] ?>"><?php echo $postUser['likes']?></p>
+              </div>
+            </button>
+        </form>
+      </div>
+  <!-- use session to get user???-->
+        <h3 class="slide-name"><?php echo $postUser['username']; ?></h3>
+          <div class="description-btn"><i class="fas fa-arrow-up"></i></div>
+
+
+          <div class="description-text">
+            <p class="text-des" id="<?= $postUser['id']?>" ><?php echo $postUser['description']?></p>
+          </div>
         </div>
-      </button>
-    </form>
-      <?php endforeach;?>
-</div>
+      </div>
+  <?php endforeach;?>
+  </div><!-- post-img-des (div)-->
+
 
 
   <?php require __DIR__.'/views/footer.php'; ?>

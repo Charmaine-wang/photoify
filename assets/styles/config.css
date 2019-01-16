@@ -15,9 +15,3 @@
   src: url("fonts/self_modern.woff") format("woff");
   /* IE9 Compat Modes */
 }
-
-@font-face {
-  font-family: "WangFont";
-  src: url("Fahkwang-regular.woff") format("woff");
-  /* IE9 Compat Modes */
-}

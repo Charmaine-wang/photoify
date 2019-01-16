@@ -39,15 +39,6 @@ if (isset($_POST['username'],$_POST['email'],$_POST['name'], $_POST['password'],
        $statement->execute();
        $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-         $_SESSION['user'] = [
-             'id' => $id,
-             'email' => $email,
-             'name' => $name,
-             'profile_bio' => $profile_bio,
-             'username' => $username,
-             'profile_pic' => $profile_pic,
-          ];
-
           $_SESSION['message'] = 'Log in on your new accont';
 
       redirect('/login.php');

@@ -95,10 +95,22 @@ formsLikes.forEach(form => {
   });
 });
 
-// const likesHeart = document.querySelectorAll(".likes-heart");
-//
-// likesHeart.forEach(heart => {
-//   if (heart) {
-//     heart.style.color = "red";
-//   }
-// })
+const slideEdit = document.querySelectorAll(".update-form");
+
+slideEdit.forEach(edit => {
+  edit.addEventListener("submit", event => {
+
+    event.preventDefault();
+
+    const formData = new FormData(edit);
+
+    const postDescription = document.querySelector(".text-des");
+
+    fetch('app/posts/update.php', {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(json => postDescription.textContent = json);
+  });
+});

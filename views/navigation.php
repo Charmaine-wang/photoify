@@ -112,16 +112,18 @@ if ($page === 'index'):?>
       </div>
 </nav><!-- /navbar -->
 
+
+
 <?php
-if (isset($_SESSION['user'])){
-$name = $_SESSION['user']['name'];
-$email = $_SESSION['user']['email'];
-$username = $_SESSION['user']['username'];
-$profile_bio = $_SESSION['user']['profile_bio'];
-$profile_pic = $_SESSION['user']['profile_pic'];
-
-
-}
+// if (isset($_SESSION['user'])){
+// $name = $_SESSION['user']['name'];
+// $email = $_SESSION['user']['email'];
+// $username = $_SESSION['user']['username'];
+// $profile_bio = $_SESSION['user']['profile_bio'];
+// $profile_pic = $_SESSION['user']['profile_pic'];
+//
+//
+// }
 ?>
 
 <?php endif; ?>
