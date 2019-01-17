@@ -1,5 +1,4 @@
-<?php require __DIR__.'/views/header.php';
-?>
+<?php require __DIR__.'/views/header.php';?>
 
 <article class="article-create">
   <h1>Register</h1>

@@ -17,6 +17,7 @@ if(isset($_POST['post_id'])){
   $hasLiked->bindParam(':post_id', $postId, PDO::PARAM_INT);
   $hasLiked->bindParam(':user_id', $userId, PDO::PARAM_INT);
   $hasLiked->execute();
+  //get likes in database
   $hasLiked = $hasLiked->fetch(PDO::FETCH_ASSOC);
 
   $statement = $pdo->prepare('SELECT likes FROM posts WHERE id = :id');
@@ -25,7 +26,7 @@ if(isset($_POST['post_id'])){
   $currentLikes = $statement->fetch(PDO::FETCH_ASSOC);
   $currentLikes = (int)$currentLikes['likes'];
 
-  // Remove Like
+  // if not a like then insert ++)
   if ($hasLiked === false) {
 
     $statement = $pdo->prepare('INSERT INTO likes(user_id, post_id) VALUES(:user_id, :post_id)');
@@ -38,7 +39,7 @@ if(isset($_POST['post_id'])){
     $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
     $statement->execute();
 
-    // Add like
+    // if already liked, presslike button again, remove like!
   } else {
 
     $statement = $pdo->prepare('DELETE FROM likes WHERE post_id = :post_id AND user_id = :user_id');

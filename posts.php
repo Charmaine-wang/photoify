@@ -7,7 +7,7 @@
       <input class="form-control" type="file" name="post_image">
     </div><!-- /form-group -->
     <div class="form-group">
-      <label for="description">content</label>
+      <label for="description">Image description</label>
       <textarea class="form-control" type="text" name="description"></textarea>
     </div><!-- /form-group -->
     <button type="submit" class="btn_posts">Upload post</button>
@@ -38,7 +38,6 @@
   <!-- use session to get user???-->
         <h3 class="slide-name"><?php  echo $_SESSION['user']['username']; ?></h3>
           <div class="description-btn"><i class="fas fa-arrow-up"></i></div>
-
           <div class="description-text"><i data-id="<?= $post['id']?>"class="fas fa-ellipsis-h change-post"></i>
             <p class="text-des" id="<?= $post['id']?>" ><?php echo $post['description']?></p>
           </div>
@@ -49,8 +48,9 @@
               <input type="hidden" name="post_id" value="<?= $post['id']?>">
               <textarea class="form-control descrip-text" type="text" name="post_description"> <?php echo $post['description']; ?></textarea>
             </div>
-            <button type="submit" class="post" name="post_id" value="<?= $post['id'] ?>">edit</button>
+            <button type="submit" class="post" name="post_id" value="<?= $post['id'] ?>">EDIT</button>
           </form>
+
           <form action="app/posts/delete.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <label for="delete_post">Delete Post</label>
@@ -58,7 +58,6 @@
             <button type="submit" class="delete" name="delete_post" value="<?= $post['id'] ?>">DELETE</button>
           </form>
           </div>
-
         </div>
       </div>
   <?php endforeach;?>

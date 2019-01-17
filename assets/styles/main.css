@@ -1,10 +1,9 @@
 body {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 600px) {
   body {
-    /* background-color: #e0e2db; */
     background-image: url("images/stairs.jpeg");
     background-position: center;
     background-size: cover;
@@ -42,6 +41,10 @@ body {
     align-content: space-around;
   }
 
+  .form-text {
+    display: none;
+  }
+
   .form-group {
     display: flex;
     flex-direction: column;
@@ -59,10 +62,6 @@ body {
     font-family: MyFont;
   }
 
-  .form-text {
-    display: none;
-  }
-
   .create-button {
     width: 200px;
     height: 52px;
@@ -72,59 +71,16 @@ body {
     align-self: center;
   }
 
-  /*POST USER*/
-  .post-img-des {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .post-image {
-    width: 30vw;
-    height: 80vh;
-    object-fit: cover;
-    border-radius: 1%;
-    margin: 1%;
-    border: 5px solid #e8ff59;
-  }
-
-  .fas {
-    font-size: 28px;
-  }
-
-  .post-edit {
-    display: none;
-    transform: translateX(-500px);
-    width: 50vh;
-    height: 30vh;
-    background-color: blue;
-  }
-
-  .slide-edit {
-    display: block;
-    transform: translateX(50px);
-    width: 100vh;
-    height: 50vh;
-    background-color: deeppink;
-  }
-
   /*POST CLICK*/
   .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
-    /* Location of the box */
     left: 0;
     top: 0;
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.9);
-    /* Black w/ opacity */
     width: 100vw;
     height: 100vh;
   }
@@ -181,9 +137,6 @@ body {
   .likes-div {
     display: flex;
     position: absolute;
-    /* justify-content: flex-start; */
-    /* width: 100px;*
-    right: 0; */
     right: 28%;
     color: black;
   }
@@ -214,7 +167,6 @@ body {
 
   .slide-name {
     text-align: center;
-    /* transform:  */
     background-color: #e8ff59;
     height: 10%;
     width: 20.8%;
@@ -240,11 +192,6 @@ body {
     }
   }
 
-  /* 100% {
-    left: 54.2%;
-    top: 0;
-  } */
-  /* } */
   .description-btn {
     height: 100px;
     width: 100px;
@@ -280,13 +227,48 @@ body {
     padding: 2%;
   }
 
+  /*POST USER*/
+  .post-img-des {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .post-image {
+    width: 30vw;
+    height: 80vh;
+    object-fit: cover;
+    border-radius: 1%;
+    margin: 1%;
+    border: 5px solid #e8ff59;
+  }
+
+  .fas {
+    font-size: 28px;
+  }
+
+  .post-edit {
+    display: none;
+    transform: translateX(-500px);
+    width: 50vh;
+    height: 30vh;
+    background-color: blue;
+  }
+
+  .slide-edit {
+    display: block;
+    transform: translateX(50px);
+    width: 100vh;
+    height: 50vh;
+    background-color: deeppink;
+  }
+
   /*ALL POSTS */
   .all-posts {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* align-items: center; */
     height: 100%;
     width: 100vw;
   }
@@ -324,7 +306,6 @@ body {
 
 @media screen and (max-width: 600px) {
   body {
-    /* background-color: #e0e2db; */
     background-image: url("images/stairs.jpeg");
     background-position: center;
     background-size: cover;
@@ -336,7 +317,7 @@ body {
   }
 
   p {
-    color: black;
+    color: #e8ff59;
     font-size: 24px;
   }
 
@@ -344,25 +325,29 @@ body {
     object-fit: cover;
   }
 
-  .signup-text {
-    color: white;
-    font-size: 24px;
+  button {
+    color: #0F56FB;
   }
 
-  .login-form {
-    height: 100vh;
-    width: 100vw;
+  input,
+  button:focus {
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: #e8ff59 solid 1px;
   }
 
-  .form-log {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
   }
 
-  .create-button {
-    margin: 10%;
+  input {
+    width: 290px;
+    height: 35px;
   }
 
   #firstpage-sek {
@@ -375,57 +360,13 @@ body {
     background-color: #050517;
   }
 
-  /*POST USER*/
-  .edit-div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .post-img-des {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 100vh;
-  }
-
-  .post-image {
-    width: 45vw;
-    height: 40vh;
-    border-radius: 1%;
-    margin: 1%;
-    border: 2px solid #e8ff59;
-  }
-
-  .fas {
-    font-size: 28px;
-  }
-
-  .post-edit {
-    transform: translateX(300px);
-    display: none;
-  }
-
-  .slide-edit {
-    display: block;
-    transform: translateX(0px);
-    display: flex;
-    width: 70vw;
-    height: 30vh;
-    background-color: #0f56fb;
-    position: absolute;
-  }
-
-  /* background-image: url("images/arch.jpeg"); */
   .animation {
     height: 0 !important;
     transition: 2s;
   }
 
   .firstpage-grey-box {
-    /* background-color: #262626; */
     font-size: 26px;
-    /* width: 50%;
-    height: 11%; */
     z-index: 1;
   }
 
@@ -452,11 +393,6 @@ body {
     width: 100vw;
     height: 100vh;
     background-image: url("images/arch.jpeg");
-    /* background-color: #262626; */
-  }
-
-  .navbar-nav {
-    /* justify-content: center; */
   }
 
   .nav-item {
@@ -477,8 +413,6 @@ body {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    /* align-items: flex-end; */
-    /* transition-delay: 5s; */
   }
 
   .mobile-nav {
@@ -491,16 +425,6 @@ body {
   .nav-ist__hidden,
   .nav-ist__visible {
     z-index: -1;
-  }
-
-  .hamburger-icon {
-    /* z-index: 3; */
-  }
-
-  html,
-  body {
-    overflow-x: hidden;
-    width: 100vw;
   }
 
   .hamburger-icon>div {
@@ -566,29 +490,33 @@ body {
     overflow: hidden;
   }
 
+  .login-form {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .form-log {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .article-create h1 {
     margin: 0;
   }
 
-  input,
-  button:focus {
-    outline: none;
-    border: none;
-    background: none;
-    border-bottom: #e8ff59 solid 1px;
-  }
-
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: #fff !important;
-  }
-
-  input {
+  .signup-text {
+    color: white;
+    font-size: 24px;
     width: 290px;
     height: 35px;
+  }
+
+  .signup-label {
+    color: #e8ff59;
+    font-size: 20px;
+    font-family: MyFont;
   }
 
   .form-create {
@@ -604,17 +532,6 @@ body {
     margin: 2% 0 0 4%;
   }
 
-  .signup-text {
-    width: 290px;
-    height: 35px;
-  }
-
-  .signup-label {
-    color: #e8ff59;
-    font-size: 20px;
-    font-family: MyFont;
-  }
-
   .form-text {
     display: none;
   }
@@ -626,6 +543,47 @@ body {
     border-radius: 5px;
     font-family: MyFont;
     align-self: center;
+    margin: 10%;
+  }
+
+  /*POST USER*/
+  .edit-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-img-des {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .post-image {
+    width: 45vw;
+    height: 40vh;
+    border-radius: 1%;
+    margin: 1%;
+    border: 2px solid #e8ff59;
+  }
+
+  .fas {
+    font-size: 28px;
+  }
+
+  .post-edit {
+    transform: translateX(300px);
+    display: none;
+  }
+
+  .slide-edit {
+    display: block;
+    transform: translateX(0px);
+    display: flex;
+    width: 70vw;
+    height: 30vh;
+    background-color: #0f56fb;
+    position: absolute;
   }
 
   /*PROFILE*/
@@ -639,14 +597,20 @@ body {
   .profile-info p {
     color: #e8ff59;
     font-family: NavFont;
+    margin: 0;
     font-size: 24px;
+  }
+
+  .profile_img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .pro-box {
     align-self: center;
   }
 
-  /*kolla om kan ändra till% */
   .profile-pic {
     width: 270px;
     height: 270px;
@@ -677,23 +641,13 @@ body {
     margin-top: 10%;
   }
 
-  /* POST ARTICLE FORM*/
-  /* .post-conatiner {
-  display: flex;
-  flex-direction: column;
-} */
-  .posts-article {
-    height: 30%;
-  }
-
   .textarea {
     width: 73%;
   }
 
   /*POST USER*/
-  .edit-div {
-    display: flex;
-    flex-direction: column;
+  .posts-article {
+    height: 30%;
   }
 
   .post-img-des {
@@ -715,38 +669,15 @@ body {
     font-size: 28px;
   }
 
-  /*
-  .post-edit {
-    transform: translateX(300px);
-  }
-
-  .slide-edit {
-    display: block;
-    transform: translateX(0px);
-    display: flex;
-    width: 80vw;
-    height: 30vh;
-    background-color: #0F56FB;
-  } */
-  /*POST CLICK*/
-  /* Style the Image Used to Trigger the Modal */
-  /* The Modal (background) */
   .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
-    /* Location of the box */
     left: 0;
     top: 0;
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.9);
-    /* Black w/ opacity */
     width: 100vw;
     height: 100vh;
   }
@@ -799,7 +730,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* position: relative; */
   }
 
   .likes-div {
@@ -808,7 +738,10 @@ body {
     justify-content: flex-start;
     width: 100px;
     right: 0;
-    color: red;
+  }
+
+  .liked-button {
+    background-color: darkred;
   }
 
   .likes-heart {
@@ -888,6 +821,11 @@ body {
     padding: 2%;
   }
 
+  .edit-div {
+    display: flex;
+    flex-direction: column;
+  }
+
   /*ALL POSTS */
   .all-posts {
     height: 100%;
@@ -899,9 +837,6 @@ body {
   }
 
   .img-feed {
-    /* width: 100vw;
-    height: 100vh; */
-    /* object-fit: cover; */
     max-width: 100%;
     height: auto;
     display: block;
@@ -919,17 +854,15 @@ body {
     position: relative;
   }
 
-  /* .login-form,
-  .article-create {
-    background-image: url("images/c.jpeg");
-    background-size: cover;
-  } */
   .profile-home-article {
+    top: 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
+    background-image: url("images/stairs.jpeg");
+    position: absolute;
   }
 
   .profile-info-home {
@@ -937,12 +870,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
   }
 
   .profile-pic-home {
     width: 200px;
     height: 200px;
     border-radius: 50%;
+  }
+
+  .profile-home-article p,
+  .profile-home-article h2 {
+    margin: 1%;
   }
 
   .icon-box {
@@ -952,12 +891,7 @@ body {
     align-content: center;
     margin: 0;
     width: 60vw;
-    height: 40vh;
-  }
-
-  .profile-home-article p,
-  .profile-home-article h2 {
-    margin: 1%;
+    height: 50vh;
   }
 
   .user-icon {
@@ -981,14 +915,8 @@ body {
 
   .image-style {
     font-size: 40px;
-    /* width: 120px; */
     color: #e8ff59;
   }
-
-  /* .hr-up {
-    width: 30%;
-    border-top: 1px solid red;
-  } */
 }
 
 /* 100% Image Width on Smaller Screens */
@@ -997,13 +925,3 @@ body {
     width: 100%;
   }
 }
-
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
