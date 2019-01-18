@@ -44,7 +44,7 @@
           <div data-id="<?= $post['id']?>" class="post-edit">
           <form action="app/posts/update.php"  class="update-form" method="post">
             <div class="form-group">
-              <label for="post_description">Edit description</label>
+              <label for="post_description">Edit Description</label>
               <input type="hidden" name="post_id" value="<?= $post['id']?>">
               <textarea class="form-control descrip-text" type="text" name="post_description"> <?php echo $post['description']; ?></textarea>
             </div>
@@ -53,7 +53,7 @@
 
           <form action="app/posts/delete.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
-              <label for="delete_post">Delete Post</label>
+              <label for="delete_post">DELETE POST</label>
             </div>
             <button type="submit" class="delete" name="delete_post" value="<?= $post['id'] ?>">DELETE</button>
           </form>

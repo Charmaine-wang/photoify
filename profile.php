@@ -19,10 +19,20 @@
       </form>
 
       <h2 class="name-rub"> <?= $_SESSION['user']['name'];?> </h2> <br>
-      <p>email: <?= $_SESSION['user']['email']; ?></p> <br>
-      <p> username: <?= $_SESSION['user']['username']; ?></p> <br>
-      <p>profile: <?= $_SESSION['user']['profile_bio'];?></p> <br>
-        s
+      <p class="profile-p">email: <?= $_SESSION['user']['email']; ?></p> <br>
+      <p class="profile-p"> username: <?= $_SESSION['user']['username']; ?></p> <br>
+      <p class="profile-p">profile: <?= $_SESSION['user']['profile_bio'];?></p> <br>
+      <div class="icon-box">
+
+        <a href="/profile.php"><i class="fas fa-user user-icon"></i></a>
+        <hr class="hr-down">
+        <a href="/editprofile.php"><i class="fas fa-users-cog user-icon"></i></i></a>
+          <hr class="hr-down">
+            <hr class="hr-up">
+        <a href="/allposts.php"><i class="fas fa-users user-icon"></i></i></a>
+          <hr class="hr-up">
+        <a href="/posts.php"><i class="fas fa-camera-retro user-icon"></i></a>
+      </div>
     </div>
   </article>
 

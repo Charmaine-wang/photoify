@@ -139,6 +139,7 @@ body {
     position: absolute;
     right: 28%;
     color: black;
+    z-index: 15;
   }
 
   .likes-heart {
@@ -247,6 +248,10 @@ body {
     font-size: 28px;
   }
 
+  .post button {
+    color: #e8ff59;
+  }
+
   .post-edit {
     display: none;
     transform: translateX(-500px);
@@ -317,7 +322,7 @@ body {
   }
 
   p {
-    color: #e8ff59;
+    color: black;
     font-size: 24px;
   }
 
@@ -326,7 +331,8 @@ body {
   }
 
   button {
-    color: #0F56FB;
+    background: #e8ff59;
+    color: black;
   }
 
   input,
@@ -392,6 +398,7 @@ body {
     justify-content: center;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     background-image: url("images/arch.jpeg");
   }
 
@@ -630,6 +637,10 @@ body {
     font-size: 22px;
   }
 
+  .profile-p {
+    color: #e8ff59;
+  }
+
   /*EDIT PROFILE*/
   .editpro-form {
     display: flex;
@@ -738,6 +749,7 @@ body {
     justify-content: flex-start;
     width: 100px;
     right: 0;
+    z-index: 15;
   }
 
   .liked-button {
@@ -750,6 +762,7 @@ body {
 
   .likes {
     font-size: 40px;
+    color: #0F56FB;
     margin: 0 0 0 10%;
   }
 
@@ -809,6 +822,7 @@ body {
     height: 40vh;
     background-color: #e8ff59;
     margin-top: -50px;
+    z-index: 10;
   }
 
   .text-des {

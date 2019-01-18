@@ -1,13 +1,10 @@
 "use strict";
 
 // /* NAVBAR START */
-
 const hamburgerIcon = document.querySelector(".hamburger-icon");
 const hamburgerMenu = document.querySelector(".nav-ist");
 const nav = document.querySelector(".desktop-nav");
-//
-
-// const postImage = [...document.querySelectorAll(".post-image")];
+//for navbar
 hamburgerIcon.addEventListener("click", () => {
   hamburgerMenu.classList.toggle("nav-ist__visible");
   hamburgerIcon.classList.toggle("transform");
@@ -15,7 +12,6 @@ hamburgerIcon.addEventListener("click", () => {
 
 // post button change comment or delete posts
 const posts = [...document.querySelectorAll(".change-post")];
-
 posts.forEach(post => {
   post.addEventListener("click", () => {
     const id = post.dataset.id;
@@ -26,16 +22,9 @@ posts.forEach(post => {
   });
 });
 
-// });
 
-// Get the modal
-// var imagesPop = [...document.querySelectorAll(".img-pop")];
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
+//for all img so that they popup
 var images = [...document.querySelectorAll(".img-small")];
-// var modalImg = [...document.querySelectorAll(".img01")];
-// var captionText = document.getElementById("caption");
-
 images.forEach(img => {
   img.onclick = function() {
     scrollTo(0, 0);
@@ -44,16 +33,15 @@ images.forEach(img => {
     const imagesPop = [
       ...document.querySelectorAll(`.img-pop[data-id="${id}"]`)
     ];
-
     imagesPop.forEach(imgPop => {
       imgPop.style.display = "block";
     });
   };
 });
 
+//when img popup, click on button then scroll
 const descriptions = [...document.querySelectorAll(".description-btn")];
 const texts = [...document.querySelectorAll(".description-text")];
-
 descriptions.forEach(description => {
   description.addEventListener("click", () => {
     texts.forEach(text => {
@@ -62,9 +50,8 @@ descriptions.forEach(description => {
   });
 });
 
-// Get the <span> element that closes the modal
-var spander = document.querySelectorAll(".close");
 
+var spander = document.querySelectorAll(".close");
 spander.forEach(span => {
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
@@ -77,15 +64,12 @@ spander.forEach(span => {
   };
 });
 
+//fetch database for likes
 const formsLikes = document.querySelectorAll(".likes-form");
-
 formsLikes.forEach(form => {
   form.addEventListener("submit", event => {
-
     event.preventDefault();
-
     const formData = new FormData(form);
-
     fetch('app/posts/likes.php', {
         method: "POST",
         body: formData
@@ -95,17 +79,13 @@ formsLikes.forEach(form => {
   });
 });
 
+//fetch database for edit post
 const slideEdit = document.querySelectorAll(".update-form");
-
 slideEdit.forEach(edit => {
   edit.addEventListener("submit", event => {
-
     event.preventDefault();
-
     const formData = new FormData(edit);
-
     const postDescription = document.querySelector(".text-des");
-
     fetch('app/posts/update.php', {
         method: "POST",
         body: formData
