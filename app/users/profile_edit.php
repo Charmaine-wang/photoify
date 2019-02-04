@@ -6,38 +6,36 @@ require __DIR__.'/../autoload.php';
 
 //check post
 if (isset($_POST['profile_bio'], $_POST['name'], $_POST['email'], $_POST['username'])) {
-//Trim post
-  $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
-  $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
-  $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
-  $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_STR);
-  $statement->execute();
-  $user = $statement->fetch(PDO::FETCH_ASSOC);
+    //Trim post
+    $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
+    $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
+    $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+    $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_STR);
+    $statement->execute();
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-if(password_verify($_POST['confirm_password'], $user['password'])){
+    if (password_verify($_POST['confirm_password'], $user['password'])) {
 
   //if username or email already is dont do anything
-  if($username == $_SESSION['user']['username'] || $email == $_SESSION['user']['email'] ){
+        if ($username == $_SESSION['user']['username'] || $email == $_SESSION['user']['email']) {
+        }
+        //if not user send back to profile
+        if (!isset($_SESSION['user'])) {
+            redirect('/profile.php');
+        }
 
-  }
-  //if not user send back to profile
-  if(!isset($_SESSION['user'])){
-          redirect('/profile.php');
-      }
+        //if none of those two trim and filter theese
 
-      //if none of those two trim and filter theese
+        $id = (int)$_SESSION['user']['id'];
+        //Trim post
+        $profile_bio = trim(filter_var($_POST['profile_bio'], FILTER_SANITIZE_STRING));
+        $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
 
-      $id = (int)$_SESSION['user']['id'];
-      //Trim post
-      $profile_bio = trim(filter_var($_POST['profile_bio'],FILTER_SANITIZE_STRING));
-      $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
-
-      $statement = $pdo->prepare('UPDATE users SET profile_bio = :profile_bio, name = :name, email = :email, username = :username
+        $statement = $pdo->prepare('UPDATE users SET profile_bio = :profile_bio, name = :name, email = :email, username = :username
       WHERE id = :id');
 
         //if not die
-        if (!$statement)
-        {
+        if (!$statement) {
             die(var_dump($pdo->errorInfo()));
         }
         // binds variables to parameteres for insert statement
@@ -49,34 +47,31 @@ if(password_verify($_POST['confirm_password'], $user['password'])){
         $statement->execute();
 
 
-        if(isset($_POST['new_password'], $_POST['repeat_password']) && $_POST['repeat_password'] !== ""){
-
-            if(!isset($_SESSION['user'])){
+        if (isset($_POST['new_password'], $_POST['repeat_password']) && $_POST['repeat_password'] !== "") {
+            if (!isset($_SESSION['user'])) {
                 redirect('/profile.php');
             } else {
+                $newPassword = password_hash(filter_var(trim($_POST['new_password']), FILTER_SANITIZE_STRING), PASSWORD_BCRYPT);
+            }
 
-              $newPassword = password_hash(filter_var(trim($_POST['new_password']), FILTER_SANITIZE_STRING), PASSWORD_BCRYPT);
-              }
+            $statement = $pdo->prepare("UPDATE users SET password = :password WHERE id = :id");
 
-              $statement = $pdo->prepare("UPDATE users SET password = :password WHERE id = :id");
+            if (!$statement) {
+                die(var_dump($pdo->errorInfo()));
+            }
 
-              if (!$statement)
-              {
-                  die(var_dump($pdo->errorInfo()));
-              }
+            $statement->bindParam(':password', $newPassword, PDO::PARAM_STR);
+            $statement->bindParam(':id', $id, PDO::PARAM_STR);
+            $statement->execute();
+            $_SESSION['messages'][] = "Your password has been updated!";
+        }
 
-          $statement->bindParam(':password', $newPassword, PDO::PARAM_STR);
-          $statement->bindParam(':id', $id, PDO::PARAM_STR);
-          $statement->execute();
-          $_SESSION['messages'][] = "Your password has been updated!";
-      }
+        $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+        $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_STR);
+        $statement->execute();
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-      $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
-      $statement->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_STR);
-      $statement->execute();
-      $user = $statement->fetch(PDO::FETCH_ASSOC);
-
-      $_SESSION['user'] = [
+        $_SESSION['user'] = [
           'id' => $user['id'],
           'email' => $user['email'],
           'name' => $user['name'],
@@ -85,5 +80,5 @@ if(password_verify($_POST['confirm_password'], $user['password'])){
           'profile_pic' => $user['profile_pic'],
       ];
     }
-        redirect('/profile.php');
+    redirect('/profile.php');
 }

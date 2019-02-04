@@ -9,58 +9,56 @@ require __DIR__.'/../autoload.php';
 // if user has not liked the post, add like to the likes table and increment total on post by 1
 
 
-if(isset($_POST['post_id'])){
-  $userId = (int) $_SESSION['user']['id'];
-  $postId = (int) $_POST['post_id'];
+if (isset($_POST['post_id'])) {
+    $userId = (int) $_SESSION['user']['id'];
+    $postId = (int) $_POST['post_id'];
 
-  $hasLiked = $pdo->prepare('SELECT * FROM likes WHERE post_id = :post_id AND user_id = :user_id');
-  $hasLiked->bindParam(':post_id', $postId, PDO::PARAM_INT);
-  $hasLiked->bindParam(':user_id', $userId, PDO::PARAM_INT);
-  $hasLiked->execute();
-  //get likes in database
-  $hasLiked = $hasLiked->fetch(PDO::FETCH_ASSOC);
+    $hasLiked = $pdo->prepare('SELECT * FROM likes WHERE post_id = :post_id AND user_id = :user_id');
+    $hasLiked->bindParam(':post_id', $postId, PDO::PARAM_INT);
+    $hasLiked->bindParam(':user_id', $userId, PDO::PARAM_INT);
+    $hasLiked->execute();
+    //get likes in database
+    $hasLiked = $hasLiked->fetch(PDO::FETCH_ASSOC);
 
-  $statement = $pdo->prepare('SELECT likes FROM posts WHERE id = :id');
-  $statement->bindParam(':id', $postId, PDO::PARAM_INT);
-  $statement->execute();
-  $currentLikes = $statement->fetch(PDO::FETCH_ASSOC);
-  $currentLikes = (int)$currentLikes['likes'];
-
-  // if not a like then insert ++)
-  if ($hasLiked === false) {
-
-    $statement = $pdo->prepare('INSERT INTO likes(user_id, post_id) VALUES(:user_id, :post_id)');
-    $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
-    $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
-    $statement->execute();
-
-    $statement = $pdo->prepare('UPDATE posts SET likes = :likes+1 WHERE id = :id');
+    $statement = $pdo->prepare('SELECT likes FROM posts WHERE id = :id');
     $statement->bindParam(':id', $postId, PDO::PARAM_INT);
-    $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
     $statement->execute();
+    $currentLikes = $statement->fetch(PDO::FETCH_ASSOC);
+    $currentLikes = (int)$currentLikes['likes'];
+
+    // if not a like then insert ++)
+    if ($hasLiked === false) {
+        $statement = $pdo->prepare('INSERT INTO likes(user_id, post_id) VALUES(:user_id, :post_id)');
+        $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
+        $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
+        $statement->execute();
+
+        $statement = $pdo->prepare('UPDATE posts SET likes = :likes+1 WHERE id = :id');
+        $statement->bindParam(':id', $postId, PDO::PARAM_INT);
+        $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
+        $statement->execute();
 
     // if already liked, presslike button again, remove like!
-  } else {
+    } else {
+        $statement = $pdo->prepare('DELETE FROM likes WHERE post_id = :post_id AND user_id = :user_id');
+        $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
+        $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
+        $statement->execute();
 
-    $statement = $pdo->prepare('DELETE FROM likes WHERE post_id = :post_id AND user_id = :user_id');
-    $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
-    $statement->bindParam(':post_id', $postId, PDO::PARAM_INT);
-    $statement->execute();
+        $statement = $pdo->prepare('UPDATE posts SET likes = :likes-1 WHERE id = :id');
+        $statement->bindParam(':id', $postId, PDO::PARAM_INT);
+        $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
+        $statement->execute();
+    }
 
-    $statement = $pdo->prepare('UPDATE posts SET likes = :likes-1 WHERE id = :id');
+    $statement = $pdo->prepare('SELECT likes FROM posts WHERE id = :id');
     $statement->bindParam(':id', $postId, PDO::PARAM_INT);
-    $statement->bindParam(':likes', $currentLikes, PDO::PARAM_INT);
     $statement->execute();
-}
-
-  $statement = $pdo->prepare('SELECT likes FROM posts WHERE id = :id');
-  $statement->bindParam(':id', $postId, PDO::PARAM_INT);
-  $statement->execute();
-  $likes = $statement->fetch(PDO::FETCH_ASSOC);
-  $likes = (int)$likes['likes'];
+    $likes = $statement->fetch(PDO::FETCH_ASSOC);
+    $likes = (int)$likes['likes'];
 
 
-	$likes = json_encode($likes);
-	header('Content-Type: application/json');
-	echo $likes;
+    $likes = json_encode($likes);
+    header('Content-Type: application/json');
+    echo $likes;
 }

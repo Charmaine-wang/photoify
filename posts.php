@@ -17,7 +17,7 @@
 <div class="edit-div">
   <div class="post-img-des">
   <?php $posts = getPost($_SESSION['user']['id'], $pdo); ?>
-  <?php  foreach($posts as $post): ?>
+  <?php  foreach ($posts as $post): ?>
     <img data-id="<?= $post['id']?>" class="post-image img-small" src=<?php echo"/app/posts/upload-image/".$post['content'];?>>
     <div data-id="<?= $post['id']?>" class="img-pop modal">
       <!-- The Close Button -->

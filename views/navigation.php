@@ -1,7 +1,7 @@
 <?php
 
-if(!isset($page)){
-  $page = '';
+if (!isset($page)) {
+    $page = '';
 };
 
 if ($page === 'index'):?>

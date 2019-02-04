@@ -17,29 +17,31 @@ if (!function_exists('redirect')) {
     }
 }
 
-function getPost(int $userID, $pdo){
-  $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id ORDER BY created_at DESC');
-  $statement->bindParam(':user_id', $userID, PDO::PARAM_INT);
-  $statement->execute();
-  $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-  return $posts;
+function getPost(int $userID, $pdo)
+{
+    $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id ORDER BY created_at DESC');
+    $statement->bindParam(':user_id', $userID, PDO::PARAM_INT);
+    $statement->execute();
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $posts;
 }
 
-function getLikes(int $userID, $pdo){
-  $statement = $pdo->prepare('SELECT *, sum(likes) FROM posts WHERE user_id = :user_id');
-  $statement->bindParam(':user_id', $userID, PDO::PARAM_INT);
-  $statement->execute();
-  $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+function getLikes(int $userID, $pdo)
+{
+    $statement = $pdo->prepare('SELECT *, sum(likes) FROM posts WHERE user_id = :user_id');
+    $statement->bindParam(':user_id', $userID, PDO::PARAM_INT);
+    $statement->execute();
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-  return $posts;
+    return $posts;
 }
 
 
-function getAllPosts($pdo){
-  $statement = $pdo->prepare('SELECT a.*, b.username, b.profile_pic FROM posts a LEFT JOIN users b ON a.user_id=b.id ORDER BY created_at DESC');
-  $statement->execute();
-  $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+function getAllPosts($pdo)
+{
+    $statement = $pdo->prepare('SELECT a.*, b.username, b.profile_pic FROM posts a LEFT JOIN users b ON a.user_id=b.id ORDER BY created_at DESC');
+    $statement->execute();
+    $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-return $allPosts;
-
-  }
+    return $allPosts;
+}

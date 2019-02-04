@@ -10,7 +10,7 @@
   </div>
     <!-- Get all posts in database -->
   <?php $allPosts = getAllPosts($pdo);?>
-    <?php  foreach($allPosts as $postUser):?>
+    <?php  foreach ($allPosts as $postUser):?>
   <div class="name-box">
     <img class="feed-profilepic" src="app/users/upload/<?= $postUser['profile_pic']?>" alt="">
     <h1><?= $postUser['username']?></h1>

@@ -7,7 +7,7 @@
     </div>
       <!-- Get all posts in database -->
     <?php $allPosts = getAllPosts($pdo);?>
-      <?php  foreach($allPosts as $postUser):?>
+      <?php  foreach ($allPosts as $postUser):?>
     <img data-id="<?= $postUser['id']?>" class="post-image img-small" src="app/posts/upload-image/<?= $postUser['content'] ?>">
     <div data-id="<?= $postUser['id']?>" class="img-pop modal">
       <!-- Close Button -->
